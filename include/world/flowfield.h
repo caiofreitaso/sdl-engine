@@ -62,6 +62,13 @@ typedef enum {
 	RIGHT
 } edge_e;
 
+typedef enum {
+	CLEAN  = 0,
+	DIRTY  = 1,
+	NEEDED = 2,
+
+}
+
 struct sector_node;
 
 typedef struct sector_portal {
@@ -69,29 +76,39 @@ typedef struct sector_portal {
 	unsigned start :3; //start position of the portal [0-7] from top/left to bottom/right
 	unsigned size  :3; //size of the portal minus one [0-7]
 
-	struct sector_node *side_A; //top/left sector 
-	struct sector_node *side_B; //bottom/right sector
+	struct sector_node *side_A; //pointer to the top/left sector 
+	struct sector_node *side_B; //pointer to the bottom/right sector
 } sector_portal_t;
 
 typedef struct sector_node {
-	unsigned char   dirty;       //dirty bit, for when buildings change the landscape
-	array_t         portals;     //array of portals, updated when buildings are placed
-	flow_sector_t   portal_dist; //distance matrix for sector's portals
-	cost_sector_t  *cost;        //pointer to the sector, since many will be flat
+	unsigned       dirty;   //dirty bit, for when buildings change the landscape
+	array_t        portals; //array of portals, updated when buildings are placed
+	cost_sector_t *cost;    //pointer to the sector, since many will be flat
 } sector_node_t;
 
 typedef struct {
-	sector_portal_t *to;
-	sector_node_t   *where;
-	flow_sector_t   *flow;
+	sector_node_t *where; //pointer to the flow's sector
+	flow_sector_t *flow;  //pointer to the actual flow
+
+	unsigned flags;       //
+	union {
+		sector_portal_t *portal; //pointer to flow's destination
+		struct {                 //location of destination
+			short x;
+			short y;
+		};
+	} to;
 } path_node_t;
 
 typedef struct {
-	array_t costs;
-	array_t sectors;
-	array_t flows;
-	array_t portals;
-	array_t paths;
+	unsigned x;      //size of the map (horizontal)
+	unsigned y;      //size of the map (vertical)
+	array_t costs;   //array of cost_sector (reduce memory use)
+	array_t sectors; //array of sector_node
+	array_t flows;   //array of flow_sector
+	array_t portals; //array of sector_portal
+	array_t graph;   //distance matrix for all portals
+	array_t paths;   //array
 } pathfinding_t;
 
 void     pathfinding_init(pathfinding_t*, map_t);
