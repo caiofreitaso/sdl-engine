@@ -6,12 +6,11 @@
 #endif
 #include <GL/gl.h>
 #include <GL/glu.h>
-#include <GL/glut.h>
 
 #include "../point.h"
+#include "../game.h"
 
-typedef struct
-{
+typedef struct {
 	char perspective;
 	union {
 		struct {
@@ -71,9 +70,9 @@ extern const camera_t DEFAULT_CAMERA;
 
 extern struct renderer RENDERER;
 
-void render_init();
-void render_clear();
-void render_camera(camera_t);
-int  render_update();
+void     render_init();
+void     render_clear();
+void     render_camera(camera_t);
+unsigned render_diff();
 
 #endif

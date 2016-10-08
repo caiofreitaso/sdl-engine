@@ -33,8 +33,8 @@ const camera_t DEFAULT_CAMERA =
 {
 	.perspective = 1,
 	.fov  = 110.0,
-	.position.v = { 0,0,10 },
-	.target.v   = { 0,1,0 },
+	.position.v = { 8,0,20 },
+	.target.v   = { 8,8,0 },
 	.up.v       = { 0,0,1 },
 	.near = 1.0,
 	.far  = 1000.0
@@ -68,7 +68,12 @@ void render_camera(camera_t cam)
 
 	if (cam.perspective)
 	{
-		gluPerspective(cam.fov, 4.0/3.0, cam.near, cam.far);
+		int w,h;
+		SDL_GetWindowSize(GAME.window, &w,&h);
+
+		float ratio = ((float) w)/h;
+
+		gluPerspective(cam.fov, ratio, cam.near, cam.far);
 		gluLookAt(cam.position.x, cam.position.y, cam.position.z,
 				  cam.target.x  , cam.target.y  , cam.target.z,
 				  cam.up.x      , cam.up.y      , cam.up.z);
@@ -81,11 +86,11 @@ void render_camera(camera_t cam)
 	//glRotatef(-45.0f, 0.0f, 1.0f, 0.0f);
 }
 
-int render_update()
+unsigned render_diff()
 {
-	static int delay = 0;
-	int actual = glutGet(GLUT_ELAPSED_TIME);
-	int diff = actual - RENDERER.lastTime;
+	static unsigned delay = 0;
+	unsigned actual = SDL_GetTicks();
+	unsigned diff = actual - RENDERER.lastTime;
 	RENDERER.frameCount++;
 	if (diff)
 	{

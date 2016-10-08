@@ -55,7 +55,7 @@ int array_del(array_t* target, int index)
 		target->array[i] = target->array[i+1];
 }
 
-void array_free(array_t* target)
+void array_free(array_t target)
 {
-	free(target->array);
+	free(target.array);
 }

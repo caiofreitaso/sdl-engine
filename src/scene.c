@@ -15,7 +15,7 @@ void scene_destroy(scene_t* s)
 	
 	glDeleteVertexArrays(1, &(s->VAO));
 	
-	array_free(&(s->meshes));
+	array_free(s->meshes);
 }
 
 void scene_attach(scene_t* s, array_t VBO, array_t EBO, GLuint idx)
@@ -58,21 +58,30 @@ void scene_attach(scene_t* s, array_t VBO, array_t EBO, GLuint idx)
 	array_add(&(s->meshes), &mesh);
 }
 
-void scene_render(scene_t s)
+void scene_render(scene_t s, camera_t c)
 {
-	glBindVertexArray(s.VAO);
-	
-	FOR_EACH(mesh_t, m, s.meshes)
-		glBindBuffer(GL_ARRAY_BUFFER, m->VBO);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m->EBO);
-		glEnable(GL_PRIMITIVE_RESTART);
-		glPrimitiveRestartIndex(m->reset);
-		glDrawElements(GL_LINE_STRIP, m->EBO_size, GL_UNSIGNED_INT, 0);
-	END_FOR
+	if (render_diff())
+	{
+		render_clear();
+		render_camera(c);
 
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-	glBindVertexArray(0);
+		glBindVertexArray(s.VAO);
+		
+		FOR_EACH(mesh_t, m, s.meshes)
+			glBindBuffer(GL_ARRAY_BUFFER, m->VBO);
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m->EBO);
+			glEnable(GL_PRIMITIVE_RESTART);
+			glPrimitiveRestartIndex(m->reset);
+			glDrawElements(GL_LINE_STRIP, m->EBO_size, GL_UNSIGNED_INT, 0);
+		END_FOR
+
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+		glBindVertexArray(0);
+
+
+		SDL_GL_SwapWindow(GAME.window);
+	}
 
 	//glDisableClientState(GL_VERTEX_ARRAY);
 }

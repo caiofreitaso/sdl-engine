@@ -20,6 +20,6 @@ typedef struct
 void scene_init(scene_t*);
 void scene_attach(scene_t*, array_t VBO, array_t EBO, GLuint idx);
 void scene_destroy(scene_t*);
-void scene_render(scene_t);
+void scene_render(scene_t, camera_t);
 
 #endif

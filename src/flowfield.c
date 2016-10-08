@@ -90,25 +90,48 @@ void pathfinding_init_sector(pathfinding_t* p, map_t m, unsigned x, unsigned y)
 	sector_node_t new;
 
 	new.dirty = 0;
-	array_init(&new.windows, sizeof(sector_window_t*));
+	array_init(&new.portals, sizeof(sector_portal_t*));
+	
 	new.cost = malloc(sizeof(cost_sector_t));
+	array_add(&p->costs, new.cost);
 
 	unsigned i, j;
 	unsigned different = 0;
 
 	for (i = x; i < x + SECTOR_SIZE; i++)
 		for (j = y; j < y + SECTOR_SIZE; j++)
-			(*(new.cost))[i-x][j-y] = m.field[i*m.y+j].terrain;
+		{
+			switch(m.field[i*m.y+j].terrain)
+			{
+				case GRASS:
+				case HARD_SAND:
+					break;
+				case TALL_GRASS:
+					break;
+				case DENSE_BUSHES:
+					break;
+				case SOFT_SAND:
+				case SWAMP:
+					break;
+				case WATER:
+				case DEEP_WATER:
+					break;
+			}
+			(*(new.cost))[i-x][j-y] = 0;
+		}
 
 	array_add(&p->sectors, &new);
 }
 
 unsigned pathfinding_sector_index(pathfinding_t p, unsigned x, unsigned y)
 {
+	unsigned i = x/SECTOR_SIZE;
+	unsigned j = y/SECTOR_SIZE;
 
+	return i*p.y + j;
 }
 
-void pathfinding_get_sectorpath(pathfinding_t p, unsigned from_x, unsigned from_y, unsigned to_x, unsigned to_y)
+void pathfinding_sectorpath(pathfinding_t p, unsigned from_x, unsigned from_y, unsigned to_x, unsigned to_y)
 {
 	
 }

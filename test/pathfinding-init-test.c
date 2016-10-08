@@ -1,4 +1,4 @@
-#include "../include/world/collision.h"
+#include "../include/world/flowfield.h"
 
 int main(int argc, char const *argv[])
 {
@@ -22,17 +22,16 @@ int main(int argc, char const *argv[])
 
 	int i,j;
 	FOR_EACH(sector_node_t, s, pf.sectors)
-	{
-		for (i = 0; i < 16; i++)
+		for (i = 0; i < SECTOR_SIZE; i++)
 		{
-			for (j = 0; j < 16; j++)
-				if (j == 15)
-					printf("%d\n", s->cost->tiles[i][j]);
+			for (j = 0; j < SECTOR_SIZE; j++)
+				if (j == SECTOR_SIZE-1)
+					printf("%d\n", (*s->cost)[i][j]);
 				else
-					printf("%d\t", s->cost->tiles[i][j]);
+					printf("%d\t", (*s->cost)[i][j]);
 		}
 
-	}
+	END_FOR
 
 	printf("-----\n");
 

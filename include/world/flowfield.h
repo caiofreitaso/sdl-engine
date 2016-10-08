@@ -65,9 +65,8 @@ typedef enum {
 typedef enum {
 	CLEAN  = 0,
 	DIRTY  = 1,
-	NEEDED = 2,
-
-}
+	NEEDED = 2
+} dirty_e;
 
 struct sector_node;
 
@@ -82,7 +81,7 @@ typedef struct sector_portal {
 
 typedef struct sector_node {
 	unsigned       dirty;   //dirty bit, for when buildings change the landscape
-	array_t        portals; //array of portals, updated when buildings are placed
+	array_t        portals; //array of pointers to portals
 	cost_sector_t *cost;    //pointer to the sector, since many will be flat
 } sector_node_t;
 
@@ -101,21 +100,21 @@ typedef struct {
 } path_node_t;
 
 typedef struct {
-	unsigned x;      //size of the map (horizontal)
-	unsigned y;      //size of the map (vertical)
-	array_t costs;   //array of cost_sector (reduce memory use)
-	array_t sectors; //array of sector_node
-	array_t flows;   //array of flow_sector
-	array_t portals; //array of sector_portal
-	array_t graph;   //distance matrix for all portals
-	array_t paths;   //array
+	unsigned x;        //size of the map (horizontal)
+	unsigned y;        //size of the map (vertical)
+	array_t sectors;   //array of sector_node
+	array_t costs;     //array of cost_sector* for future free()
+	array_t flows;     //array of flow_sector* for future free()
+	array_t portals;   //array of sector_portal
+	array_t graph;     //distance matrix for all portals
+	array_t paths;     //array 
 } pathfinding_t;
 
 void     pathfinding_init(pathfinding_t*, map_t);
-void     pathfinding_init_sector(pathfinding_t*, map_t, unsigned, unsigned);
-unsigned pathfinding_sector_index(pathfinding_t, unsigned, unsigned);
+void     pathfinding_free(pathfinding_t*);
+void     pathfinding_init_sector(pathfinding_t*, map_t, unsigned x, unsigned y);
+unsigned pathfinding_sector_index(pathfinding_t, unsigned x, unsigned y);
 
-void     pathfinding_get_sectorpath(pathfinding_t, unsigned from_x, unsigned from_y, unsigned to_x, unsigned to_y);
-
+void     pathfinding_sectorpath(pathfinding_t, unsigned from_x, unsigned from_y, unsigned to_x, unsigned to_y);
 
 #endif

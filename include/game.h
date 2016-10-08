@@ -4,22 +4,21 @@
 #include "contiguous.h"
 #include "settings.h"
 #include <stdio.h>
+#include <omp.h>
 
-struct game_t;
-
-typedef void (*game_upd)(struct game_t);
-
-typedef struct game_t {
+typedef struct {
 	SDL_Window* window;
 	SDL_Surface* screen;
 	SDL_GLContext context;
 
 	settings_t settings;
+} game_t;
 
-	game_upd update;
-} Game;
+extern game_t GAME;
 
-int  game_init(const char*, Game*);
-void game_quit(Game*);
+int  game_init(const char*);
+void game_quit();
+
+void game_update();
 
 #endif

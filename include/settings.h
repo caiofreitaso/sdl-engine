@@ -12,11 +12,11 @@ typedef enum {
 	FULLSCREEN = SDL_WINDOW_FULLSCREEN_DESKTOP,
 	WINDOW = SDL_WINDOW_OPENGL,
 	BORDERLESS_WINDOW = SDL_WINDOW_BORDERLESS
-} window_t;
+} window_e;
 
 typedef struct {
 	resolution_t resolution;
-	window_t mode;
+	window_e mode;
 	SDL_bool vsync;
 	float gamma;
 } video_settings_t;
