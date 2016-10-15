@@ -70,15 +70,16 @@ void scene_render(scene_t s, camera_t c)
 		FOR_EACH(mesh_t, m, s.meshes)
 			glBindBuffer(GL_ARRAY_BUFFER, m->VBO);
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m->EBO);
+			
 			glEnable(GL_PRIMITIVE_RESTART);
 			glPrimitiveRestartIndex(m->reset);
-			glDrawElements(GL_LINE_STRIP, m->EBO_size, GL_UNSIGNED_INT, 0);
+			
+			glDrawElements(GL_TRIANGLE_STRIP, m->EBO_size, GL_UNSIGNED_INT, 0);
 		END_FOR
 
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 		glBindVertexArray(0);
-
 
 		SDL_GL_SwapWindow(GAME.window);
 	}

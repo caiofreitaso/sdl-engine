@@ -31,6 +31,8 @@ int map_read(map_t* m, const char* f)
 			m->field[i*m->y+j].terrain = t;
 		}
 
+	m->areas = 0;
+
 	return 0;
 }
 

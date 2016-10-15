@@ -30,7 +30,8 @@ typedef struct {
 
 	array_t doodads;
 
-	map_point_t* field;
+	map_point_t *field;
+	float *areas;
 } map_t;
 
 int  map_read(map_t*, const char*);

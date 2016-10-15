@@ -2,45 +2,44 @@
 
 const float HEIGHT_SCALE = 0.03125;
 
-void heightmap_init(heightmap_t* h, map_t m)
+void heightmap_init(heightmap_t* h, map_t* m)
 {
 	unsigned i, j;
 
 	//memory allocation
-	unsigned f_size = m.x * m.y * 2;
-	unsigned v_size = (m.x + 1) * (m.y + 1);
-	unsigned i_size = ((m.y + 1) * 2) * m.x + m.x - 1;
+	unsigned f_size = m->x * m->y * 2;
+	unsigned v_size = (m->x + 1) * (m->y + 1);
+	unsigned i_size = ((m->y + 1) * 2) * m->x + m->x - 1;
 	
 	h->r_index = v_size;
 
 	h->vertices.increment = sizeof(vertex_t);
 	h->vertices.reserved  = h->vertices.size = v_size;
-	h->vertices.array     = malloc(v_size * sizeof(vertex_t));
+	h->vertices.array     = calloc(v_size, sizeof(vertex_t));
 
 	h->indices.increment = sizeof(unsigned);
 	h->indices.reserved  = h->indices.size = i_size;
-	h->indices.array     = malloc(i_size * sizeof(unsigned));
+	h->indices.array     = calloc(i_size, sizeof(unsigned));
 
 	//set vertex positions
-	heightmap_set_vert(h, m);
+	heightmap_set_vert(h, *m);
 
 	//set triangles
-	heightmap_set_idx(h, m);
+	heightmap_set_idx(h, *m);
 
 	//get face normals
 	struct face_ext faces = heightmap_faces(h, f_size);
 
 	//get vertices normals
-	heightmap_normals(h, m, faces.normals, f_size);
+	heightmap_normals(h, *m, faces.normals, f_size);
 
-	h->areas = faces.areas;
+	m->areas = faces.areas;
 }
 
 void heightmap_free(heightmap_t h)
 {
 	array_free(h.vertices);
 	array_free(h.indices);
-	free(h.areas);
 }
 
 void heightmap_set_vert(heightmap_t* h, map_t m)
@@ -50,12 +49,14 @@ void heightmap_set_vert(heightmap_t* h, map_t m)
 	at(h->vertices,0, vertex_t)->position.x = 0;
 	at(h->vertices,0, vertex_t)->position.y = 0;
 	at(h->vertices,0, vertex_t)->position.z = m.field[0].height*HEIGHT_SCALE;
+	at(h->vertices,0, vertex_t)->color.r = m.field[0].height*HEIGHT_SCALE;
 
 	for (i = 1; i < m.y+1; i++)
 	{
 		at(h->vertices,i, vertex_t)->position.x = 0;
 		at(h->vertices,i, vertex_t)->position.y = i;
 		at(h->vertices,i, vertex_t)->position.z = m.field[i-1].height*HEIGHT_SCALE;
+		at(h->vertices,i, vertex_t)->color.r = m.field[i-1].height*HEIGHT_SCALE;
 	}
 
 	for (i = 1; i < m.x+1; i++)
@@ -64,24 +65,19 @@ void heightmap_set_vert(heightmap_t* h, map_t m)
 			at(h->vertices,i*(m.y+1)+j, vertex_t)->position.x = i;
 			at(h->vertices,i*(m.y+1)+j, vertex_t)->position.y = j;
 			if (j)
+			{
 				at(h->vertices,i*(m.y+1)+j, vertex_t)->position.z =
 					m.field[((i-1)*m.y)+j-1].height * HEIGHT_SCALE;
+				at(h->vertices,i*(m.y+1)+j, vertex_t)->color.r =
+					m.field[((i-1)*m.y)+j-1].height * HEIGHT_SCALE;
+			}
 			else
-				at(h->vertices,i*(m.y+1)+j, vertex_t)->position.z =
+			{
+				at(h->vertices,i*(m.y+1)+j, vertex_t)->color.r =
 					m.field[((i-1)*m.y)+j].height * HEIGHT_SCALE;
+
+			}
 		}
-
-
-	for(i = 0; i < m.x; i++)
-		for(j = 0; j < m.y; j++)
-			fprintf(stderr, "%.0f\n", m.field[i*m.y+j].height);
-
-	FOR_EACH(vertex_t, v, h->vertices)
-		fprintf(stderr, "%.0f %.0f %.0f\n",
-				v->position.x,
-				v->position.y,
-				v->position.z);
-	END_FOR
 }
 
 void heightmap_set_idx(heightmap_t* h, map_t m)
@@ -104,11 +100,6 @@ void heightmap_set_idx(heightmap_t* h, map_t m)
 			face_ptr++;
 		}
 	}
-
-	FOR_EACH(unsigned, v, h->indices)
-		fprintf(stderr, "%d ", *v);
-	END_FOR
-	fprintf(stderr, "\n");
 }
 
 struct face_ext heightmap_faces(heightmap_t* h, unsigned f_size)
@@ -124,8 +115,11 @@ struct face_ext heightmap_faces(heightmap_t* h, unsigned f_size)
 	{
 		face_t face = *((face_t*) face_ptr);
 
-		if (face.c == face.b)
-			face_ptr += 2;
+		if (face.c == h->r_index)
+		{
+			face_ptr ++;
+			face_ptr ++;
+		}
 		else
 		{
 			ret.normals[i] = face_normal(*h,face);
@@ -227,7 +221,6 @@ void heightmap_normals(heightmap_t* h, map_t m, point3_t* normals, unsigned f_si
 	normal = &at(h->vertices,h->vertices.size-1,vertex_t)->normal;
 	*normal = normalize3D(normals[f_size-1]);
 
-
 	free(normals);
 }
 
@@ -236,7 +229,7 @@ point3_t face_normal(heightmap_t h, face_t f)
 	point3_t normal = normal3D(at(h.vertices,f.b,vertex_t)->position,
 						at(h.vertices,f.a,vertex_t)->position,
 						at(h.vertices,f.c,vertex_t)->position);
-	if (normal.v[1] < 0)
+	if (normal.v[2] < 0)
 		normal = mul3D(normal,-1.0f);
 	return normal;
 }

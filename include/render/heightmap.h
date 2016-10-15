@@ -3,8 +3,7 @@
 
 #include "../world/map.h"
 #include "../vertex.h"
-#include "../scene/scene.h"
-#include "render.h"
+#include "../point.h"
 #include <stddef.h>
 #include <GL/gl.h>
 
@@ -15,11 +14,9 @@ typedef struct {
 
 	array_t vertices; //vertex coords
 	array_t indices;  //vertex index for triangles
-
-	float  *areas;    //areas for all faces
 } heightmap_t;
 
-void heightmap_init(heightmap_t*, map_t);
+void heightmap_init(heightmap_t*, map_t*);
 void heightmap_free(heightmap_t);
 
 void heightmap_set_vert(heightmap_t*, map_t);

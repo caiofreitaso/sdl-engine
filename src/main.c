@@ -16,7 +16,7 @@ int main( int argc, char* args[] )
 	heightmap_t hm;
 
 	map_read(&map, args[1]);
-	heightmap_init(&hm, map);
+	heightmap_init(&hm, &map);
 
 	if (!game_init("Cerebrate Test"))
 	{

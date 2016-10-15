@@ -28,8 +28,10 @@ enum ARRAY_RETURN
 
 void  array_init(array_t* target, size_t type_size);
 void* array_at  (array_t  target, int index);
+void* array_last(array_t  target);
 int   array_add (array_t* target, void const* value);
 int   array_del (array_t* target, int index);
+int   array_pop (array_t* target);
 void  array_free(array_t  target);
 
 #endif

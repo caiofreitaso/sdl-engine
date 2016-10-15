@@ -4,6 +4,7 @@
 #include "map.h"
 #include "../point.h"
 #include "../contiguous.h"
+#include "../trimatrix.h"
 
 #define SECTOR_SIZE 8
 
@@ -44,6 +45,8 @@ extern const cost_sector_t BAD_SECTOR;
 extern const cost_sector_t GOOD_SECTOR;
 extern const cost_sector_t BEST_SECTOR;
 
+unsigned eq_cost_sector(cost_sector_t, cost_sector_t);
+
 // Sector portal
 // =============
 //
@@ -56,9 +59,7 @@ extern const cost_sector_t BEST_SECTOR;
 // portals.
 
 typedef enum {
-	TOP,
 	BOTTOM,
-	LEFT,
 	RIGHT
 } edge_e;
 
@@ -71,7 +72,7 @@ typedef enum {
 struct sector_node;
 
 typedef struct sector_portal {
-	unsigned edge  :2; //which edge the portal is from side A
+	unsigned edge  :1; //which edge the portal is from side A
 	unsigned start :3; //start position of the portal [0-7] from top/left to bottom/right
 	unsigned size  :3; //size of the portal minus one [0-7]
 
@@ -102,17 +103,19 @@ typedef struct {
 typedef struct {
 	unsigned x;        //size of the map (horizontal)
 	unsigned y;        //size of the map (vertical)
+	trimatrix_t graph; //distance matrix for all portals
+	array_t costs;     //array of cost_sector
 	array_t sectors;   //array of sector_node
-	array_t costs;     //array of cost_sector* for future free()
-	array_t flows;     //array of flow_sector* for future free()
 	array_t portals;   //array of sector_portal
-	array_t graph;     //distance matrix for all portals
+	array_t flows;     //array of flow_sector* for future free()
 	array_t paths;     //array 
 } pathfinding_t;
 
 void     pathfinding_init(pathfinding_t*, map_t);
 void     pathfinding_free(pathfinding_t*);
 void     pathfinding_init_sector(pathfinding_t*, map_t, unsigned x, unsigned y);
+void     pathfinding_add_portals(pathfinding_t*, unsigned x, unsigned y);
+void     pathfinding_update_nodes(pathfinding_t* p);
 unsigned pathfinding_sector_index(pathfinding_t, unsigned x, unsigned y);
 
 void     pathfinding_sectorpath(pathfinding_t, unsigned from_x, unsigned from_y, unsigned to_x, unsigned to_y);

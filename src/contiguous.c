@@ -15,6 +15,11 @@ void* array_at(array_t target, int index)
 	return &target.array[index * target.increment];
 }
 
+void* array_last(array_t target)
+{
+	return &target.array[(target.size-1) * target.increment];
+}
+
 int array_add(array_t* target, void const* value)
 {
 	if (target->reserved == target->size)
@@ -51,8 +56,20 @@ int array_del(array_t* target, int index)
 	target->size--;
 
 	unsigned i;
-	for (i = index; i < target->size; i++)
+	for (i = index*target->increment; i < target->size*target->increment; i++)
 		target->array[i] = target->array[i+1];
+
+	return ARRAY_OK;
+}
+
+int array_pop(array_t* target)
+{
+	if (!target->size)
+		return ARRAY_OUT_OF_BOUNDS;
+
+	target->size--;
+
+	return ARRAY_OK;
 }
 
 void array_free(array_t target)
