@@ -152,9 +152,9 @@ void pathfinding_add_portals(pathfinding_t* p, unsigned x, unsigned y)
 	unsigned i;
 
 	unsigned size = 0, position = SECTOR_SIZE;
-	sector_node_t *A = at(p->costs.array, x*p->y+y, sector_node_t);
-	sector_node_t *B = at(p->costs.array, (x+1)*p->y+y, sector_node_t);
-	sector_node_t *C = at(p->costs.array, x*p->y+y+1, sector_node_t);
+	sector_node_t *A = at(p->costs, x*p->y+y, sector_node_t);
+	sector_node_t *B = at(p->costs, (x+1)*p->y+y, sector_node_t);
+	sector_node_t *C = at(p->costs, x*p->y+y+1, sector_node_t);
 
 	//HORIZONTAL
 	{
@@ -178,7 +178,7 @@ void pathfinding_add_portals(pathfinding_t* p, unsigned x, unsigned y)
 				portal.sideA = A;
 				portal.sideB = B;
 
-				array_add(&p->portals, portal);
+				array_add(&p->portals, &portal);
 
 				position = SECTOR_SIZE;
 				size = 0;
@@ -208,7 +208,7 @@ void pathfinding_add_portals(pathfinding_t* p, unsigned x, unsigned y)
 				portal.sideA = A;
 				portal.sideB = B;
 
-				array_add(&p->portals, portal);
+				array_add(&p->portals, &portal);
 
 				position = SECTOR_SIZE;
 				size = 0;
@@ -222,7 +222,7 @@ void pathfinding_update_nodes(pathfinding_t* p)
 	trimatrix_t m;
 	matrix_init(&m, p->portals.size);
 
-	for ()
+	//for ()
 }
 
 unsigned pathfinding_sector_index(pathfinding_t p, unsigned x, unsigned y)

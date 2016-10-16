@@ -2,12 +2,12 @@
 
 unsigned matrix_size(unsigned side)
 {
-	return (side*side + side)/2
+	return (side*side + side)/2;
 }
 
 void matrix_init(trimatrix_t* target, unsigned side)
 {
-	target->side  = side
+	target->side  = side;
 	target->size  = matrix_size(side);
 	target->array = calloc(target->size, sizeof(float));
 }
@@ -38,6 +38,33 @@ int matrix_copy(trimatrix_t receiver, trimatrix_t giver)
 	memcpy(receiver.array, giver.array, smaller);
 
 	return MATRIX_OK;
+}
+
+int matrix_del(trimatrix_t* target, unsigned j)
+{
+	if (j >= target->side)
+		return MATRIX_OUT_OF_BOUNDS;
+
+	unsigned i,k;
+	unsigned offset   = matrix_size(j);
+	unsigned elements = j+1;
+
+	for (i = offset+elements; i < target->size; i++)
+		target->array[i-elements] = target->array[i];
+
+	target->size -= elements;
+
+	for (i = j+1; i < target->side; i++)
+	{
+		offset += i-j-1;
+		for (k = offset; k < target->size; k++)
+			target->array[k] = target->array[k+1];
+		offset += elements;
+
+		target->size--;
+	}
+
+	target->side--;
 }
 
 void matrix_free(trimatrix_t target)

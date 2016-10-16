@@ -6,7 +6,7 @@
 #include "../contiguous.h"
 #include "../trimatrix.h"
 
-#define SECTOR_SIZE 8
+#define SECTOR_SIZE 16
 
 typedef enum {
 	BEST_TERR  = 25,
@@ -72,12 +72,12 @@ typedef enum {
 struct sector_node;
 
 typedef struct sector_portal {
-	unsigned edge  :1; //which edge the portal is from side A
-	unsigned start :3; //start position of the portal [0-7] from top/left to bottom/right
-	unsigned size  :3; //size of the portal minus one [0-7]
+	unsigned edge;  //which edge the portal is from side A
+	unsigned start; //start position of the portal from top/left to bottom/right
+	unsigned size;  //size of the portal minus one
 
-	struct sector_node *side_A; //pointer to the top/left sector 
-	struct sector_node *side_B; //pointer to the bottom/right sector
+	struct sector_node *sideA; //pointer to the top/left sector 
+	struct sector_node *sideB; //pointer to the bottom/right sector
 } sector_portal_t;
 
 typedef struct sector_node {
