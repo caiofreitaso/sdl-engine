@@ -2,26 +2,32 @@
 
 game_t GAME =
 {
-	.window = 0,
-	.screen = 0,
-	.context = 0,
+	.window   = 0,
+	.screen   = 0,
+	.context  = 0,
+	.quit     = SDL_FALSE,
 	.settings =
 	{
 		.display =
 		{
 			.resolution =
 			{
-				.width = 1024,
+				.width  = 1024,
 				.height = 768
 			},
-			.mode = WINDOW,
+			.mode  = WINDOW,
 			.vsync = SDL_FALSE,
 			.gamma = 1.0
 		},
 		.controls =
 		{
-			.lock_mouse = SDL_FALSE
-		}
+			.lock_mouse = SDL_FALSE,
+			.cam_speed  = 100,
+			.cam_scroll = 800,
+			.cam_drag   = 1,
+		},
+		.event_delay  = 16,
+		.render_delay = 1
 	}
 };
 
@@ -42,12 +48,20 @@ int game_init(const char* name)
 		}
 		else
 		{
-			GAME.screen = SDL_GetWindowSurface(GAME.window);
+			SDL_GL_SetAttribute(SDL_GL_SHARE_WITH_CURRENT_CONTEXT, 1);
+			
+			GAME.screen  = SDL_GetWindowSurface(GAME.window);
 			GAME.context = SDL_GL_CreateContext(GAME.window);
 
 			return 0;
 		}
 	}
+}
+
+void game_GLContext()
+{
+	SDL_GL_DeleteContext(GAME.context);
+	GAME.context = SDL_GL_CreateContext(GAME.window);
 }
 
 void game_quit()

@@ -14,7 +14,7 @@ typedef struct {
 	char perspective;
 	union {
 		struct {
-			float    fov;
+			float    v_fov;
 			point3_t position;
 			point3_t target;
 			point3_t up;
@@ -32,10 +32,11 @@ typedef struct {
 
 
 struct renderer {
-	float fps;
-	float deltaTime;
+	double fps;
+	double deltaTime;
 	unsigned frameCount;
 	unsigned lastTime;
+	unsigned diffTime;
 };
 
 extern const color_t COLOR_CLIFF;
@@ -70,9 +71,9 @@ extern const camera_t DEFAULT_CAMERA;
 
 extern struct renderer RENDERER;
 
-void     render_init();
-void     render_clear();
-void     render_camera(camera_t);
-unsigned render_diff();
+void render_init();
+void render_clear();
+void render_camera(camera_t);
+void render_update();
 
 #endif

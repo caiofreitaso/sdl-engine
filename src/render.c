@@ -32,12 +32,12 @@ const color_t YELLOW  = { .v = {1,1,0,1} };
 const camera_t DEFAULT_CAMERA =
 {
 	.perspective = 1,
-	.fov  = 110.0,
+	.v_fov  = 110.0,
 	.position.v = { 8,0,15 },
 	.target.v   = { 8,8,0 },
 	.up.v       = { 0,0,1 },
 	.near = 1.0,
-	.far  = 1000.0
+	.far  = 10000.0
 };
 
 struct renderer RENDERER =
@@ -59,6 +59,9 @@ void render_init()
 void render_clear()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glViewport(0, 0,
+		GAME.settings.display.resolution.width,
+		GAME.settings.display.resolution.height);
 }
 
 void render_camera(camera_t cam)
@@ -72,8 +75,9 @@ void render_camera(camera_t cam)
 		SDL_GetWindowSize(GAME.window, &w,&h);
 
 		float ratio = ((float) w)/h;
+		float fov   = (360/3.14159265) * atan(tan(cam.v_fov*3.14159265/180) * ratio);
 
-		gluPerspective(cam.fov, ratio, cam.near, cam.far);
+		gluPerspective(fov, ratio, cam.near, cam.far);
 		gluLookAt(cam.position.x, cam.position.y, cam.position.z,
 				  cam.target.x  , cam.target.y  , cam.target.z,
 				  cam.up.x      , cam.up.y      , cam.up.z);
@@ -86,19 +90,13 @@ void render_camera(camera_t cam)
 	//glRotatef(-45.0f, 0.0f, 1.0f, 0.0f);
 }
 
-unsigned render_diff()
+void render_update()
 {
-	static unsigned delay = 0;
 	unsigned actual = SDL_GetTicks();
-	unsigned diff = actual - RENDERER.lastTime;
+
+	RENDERER.diffTime  = actual - RENDERER.lastTime;
+	RENDERER.deltaTime = ((double)(RENDERER.diffTime))/1000.0;
+	RENDERER.fps       = 1/RENDERER.deltaTime;
+	RENDERER.lastTime  = actual;
 	RENDERER.frameCount++;
-	if (diff)
-	{
-		RENDERER.deltaTime = ((float)(diff))/1000.0;
-		RENDERER.fps = delay ? delay/RENDERER.deltaTime : 1/RENDERER.deltaTime;
-		RENDERER.lastTime = actual;
-		delay = 0;
-	} else
-		delay++;
-	return diff;
 }

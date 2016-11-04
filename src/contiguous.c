@@ -76,3 +76,8 @@ void array_free(array_t target)
 {
 	free(target.array);
 }
+
+void array_shift(void* ptr, size_t element, unsigned size, unsigned start, unsigned pos)
+{
+	memmove((void*)&(((char*)ptr)[start*element]), (void*)&(((char*)ptr)[(start+pos)*element]), (size-start-1)*element);
+}

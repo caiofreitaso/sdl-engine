@@ -17,7 +17,12 @@ unsigned eq_cost_sector(cost_sector_t a, cost_sector_t b)
 	return 1;
 }
 
-void pathfinding_init(pathfinding_t* p, map_t m)
+cost_sector_t* get_cost(pathfinding_t p, sector_node_t s)
+{
+	return &((cost_sector_t*)p.costs.array)[s.cost];
+}
+
+void pf_init(pathfinding_t* p, map_t m)
 {
 	p->x = m.x/SECTOR_SIZE;
 	p->y = m.y/SECTOR_SIZE;
@@ -28,23 +33,23 @@ void pathfinding_init(pathfinding_t* p, map_t m)
 	array_init(&p->portals, sizeof(sector_portal_t));
 	array_init(&p->paths,   sizeof(path_node_t));
 
-	p->graph.array = p->graph.side = p->graph.size = 0;
 
 	unsigned i, j;
 
 	for (i = 0; i < m.x; i = i + SECTOR_SIZE)
 		for (j = 0; j < m.y; j = j + SECTOR_SIZE)
-			pathfinding_init_sector(p, m, i, j);
+			pf_init_sector(p, m, i, j);
 
-	for (i = 0; i < p->x-1; i++)
-		for (j = 0; j < p->y-1; j++)
-			pathfinding_add_portals(p, i, j);
+	for (i = 0; i < p->x; i++)
+		for (j = 0; j < p->y; j++)
+			pf_add_portals(p, i, j);
 
-	pathfinding_update_nodes(p);
+	sparse_init(&p->graph, p->portals.size);
+	pf_update_nodes(p);
 
 }
 
-void pathfinding_init_sector(pathfinding_t* p, map_t m, unsigned x, unsigned y)
+void pf_init_sector(pathfinding_t* p, map_t m, unsigned x, unsigned y)
 {
 	sector_node_t new;
 	cost_sector_t cost;
@@ -54,7 +59,8 @@ void pathfinding_init_sector(pathfinding_t* p, map_t m, unsigned x, unsigned y)
 	array_init(&new.portals, sizeof(sector_portal_t*));
 	
 	array_add(&p->costs, cost);
-	new.cost = (cost_sector_t*) array_last(p->costs);
+	new.cost = p->costs.size-1;
+	cost_sector_t *n_cost = get_cost(*p, new);
 
 	unsigned i, j;
 
@@ -66,21 +72,21 @@ void pathfinding_init_sector(pathfinding_t* p, map_t m, unsigned x, unsigned y)
 			{
 				case GRASS:
 				case HARD_SAND:
-					(*(new.cost))[i-x][j-y] = BEST_TERR;
+					(*(n_cost))[i-x][j-y] = BEST_TERR;
 					break;
 				case TALL_GRASS:
-					(*(new.cost))[i-x][j-y] = GOOD_TERR;
+					(*(n_cost))[i-x][j-y] = GOOD_TERR;
 					break;
 				case DENSE_BUSHES:
-					(*(new.cost))[i-x][j-y] = BAD_TERR;
+					(*(n_cost))[i-x][j-y] = BAD_TERR;
 					break;
 				case SOFT_SAND:
 				case SWAMP:
-					(*(new.cost))[i-x][j-y] = WORST_TERR;
+					(*(n_cost))[i-x][j-y] = WORST_TERR;
 					break;
 				case WATER:
 				case DEEP_WATER:
-					(*(new.cost))[i-x][j-y] = WATER_TERR;
+					(*(n_cost))[i-x][j-y] = WATER_TERR;
 					break;
 			}
 
@@ -95,37 +101,37 @@ void pathfinding_init_sector(pathfinding_t* p, map_t m, unsigned x, unsigned y)
 
 				if (area > 1.313) //grade 100% or 45°
 				{
-					if ((*(new.cost))[i-x][j-y] != WATER_TERR)
-						(*(new.cost))[i-x][j-y] = BLCKD_TERR;
+					if ((*(n_cost))[i-x][j-y] != WATER_TERR)
+						(*(n_cost))[i-x][j-y] = BLCKD_TERR;
 				}
 				else if (area >= 1.0288) //grade 25% or 14°
-					switch((*(new.cost))[i-x][j-y])
+					switch((*(n_cost))[i-x][j-y])
 					{
 						case BEST_TERR:
-							(*(new.cost))[i-x][j-y] = BAD_TERR;
+							(*(n_cost))[i-x][j-y] = BAD_TERR;
 							break;
 						case GOOD_TERR:
-							(*(new.cost))[i-x][j-y] = WORST_TERR;
+							(*(n_cost))[i-x][j-y] = WORST_TERR;
 							break;
 						case BAD_TERR:
 						case WORST_TERR:
-							(*(new.cost))[i-x][j-y] = BLCKD_TERR;
+							(*(n_cost))[i-x][j-y] = BLCKD_TERR;
 							break;
 					}
 				else if (area >= 1.0049) //grade 10% or 5.71°
-					switch((*(new.cost))[i-x][j-y])
+					switch((*(n_cost))[i-x][j-y])
 					{
 						case BEST_TERR:
-							(*(new.cost))[i-x][j-y] = GOOD_TERR;
+							(*(n_cost))[i-x][j-y] = GOOD_TERR;
 							break;
 						case GOOD_TERR:
-							(*(new.cost))[i-x][j-y] = BAD_TERR;
+							(*(n_cost))[i-x][j-y] = BAD_TERR;
 							break;
 						case BAD_TERR:
-							(*(new.cost))[i-x][j-y] = WORST_TERR;
+							(*(n_cost))[i-x][j-y] = WORST_TERR;
 							break;
 						case WORST_TERR:
-							(*(new.cost))[i-x][j-y] = BLCKD_TERR;
+							(*(n_cost))[i-x][j-y] = BLCKD_TERR;
 							break;
 					}
 			}
@@ -133,12 +139,12 @@ void pathfinding_init_sector(pathfinding_t* p, map_t m, unsigned x, unsigned y)
 
 	//verifying existence of an equal matrix in the array
 	FOR_EACH(cost_sector_t, s, p->costs)
-		if (s != new.cost)
+		if (s != n_cost)
 		{
-			if (eq_cost_sector(*s, *new.cost))
+			if (eq_cost_sector(*s, *get_cost(*p, new)))
 			{
 				array_pop(&p->costs);
-				new.cost = s;
+				new.cost = s - ((cost_sector_t*)p->costs.array);
 				break;
 			}
 		}
@@ -147,20 +153,28 @@ void pathfinding_init_sector(pathfinding_t* p, map_t m, unsigned x, unsigned y)
 	array_add(&p->sectors, &new);
 }
 
-void pathfinding_add_portals(pathfinding_t* p, unsigned x, unsigned y)
+void pf_add_portals(pathfinding_t* p, unsigned x, unsigned y)
 {
 	unsigned i;
 
 	unsigned size = 0, position = SECTOR_SIZE;
-	sector_node_t *A = at(p->costs, x*p->y+y, sector_node_t);
-	sector_node_t *B = at(p->costs, (x+1)*p->y+y, sector_node_t);
-	sector_node_t *C = at(p->costs, x*p->y+y+1, sector_node_t);
+	sector_node_t *A = at(p->sectors, x*p->y+y,     sector_node_t);
+	sector_node_t *B = 0;
+	sector_node_t *C = 0;
+
+	cost_sector_t *cA = get_cost(*p, *A);
+	cost_sector_t *cB = 0;
+	cost_sector_t *cC = 0;
 
 	//HORIZONTAL
+	if (x < p->x-1)
 	{
+		B  = at(p->sectors, (x+1)*p->y+y, sector_node_t);
+		cB = get_cost(*p, *B);
+	
 		for (i = 0; i < SECTOR_SIZE; i++)
 		{
-			if (((*A->cost)[SECTOR_SIZE-1][i] != BLCKD_TERR) && ((*B->cost)[0][i] != BLCKD_TERR))
+			if (((*cA)[SECTOR_SIZE-1][i] != BLCKD_TERR) && ((*cB)[0][i] != BLCKD_TERR))
 			{
 				if (position == SECTOR_SIZE)
 				{
@@ -184,13 +198,31 @@ void pathfinding_add_portals(pathfinding_t* p, unsigned x, unsigned y)
 				size = 0;
 			}
 		}
+		if (position < SECTOR_SIZE)
+		{
+			sector_portal_t portal;
+			portal.edge  = BOTTOM;
+			portal.start = position;
+			portal.size  = size-1;
+			portal.sideA = A;
+			portal.sideB = B;
+
+			array_add(&p->portals, &portal);
+
+			position = SECTOR_SIZE;
+			size = 0;
+		}
 	}
 
 	//VERTICAL
+	if (y < p->y-1)
 	{
+		C  = at(p->sectors, x*p->y+y+1, sector_node_t);
+		cC = get_cost(*p, *C);
+
 		for (i = 0; i < SECTOR_SIZE; i++)
 		{
-			if (((*A->cost)[i][SECTOR_SIZE-1] != BLCKD_TERR) && ((*B->cost)[i][0] != BLCKD_TERR))
+			if (((*cA)[i][SECTOR_SIZE-1] != BLCKD_TERR) && ((*cC)[i][0] != BLCKD_TERR))
 			{
 				if (position == SECTOR_SIZE)
 				{
@@ -206,7 +238,7 @@ void pathfinding_add_portals(pathfinding_t* p, unsigned x, unsigned y)
 				portal.start = position;
 				portal.size  = size-1;
 				portal.sideA = A;
-				portal.sideB = B;
+				portal.sideB = C;
 
 				array_add(&p->portals, &portal);
 
@@ -214,18 +246,29 @@ void pathfinding_add_portals(pathfinding_t* p, unsigned x, unsigned y)
 				size = 0;
 			}
 		}
+		if (position < SECTOR_SIZE)
+		{
+			sector_portal_t portal;
+			portal.edge  = RIGHT;
+			portal.start = position;
+			portal.size  = size-1;
+			portal.sideA = A;
+			portal.sideB = C;
+
+			array_add(&p->portals, &portal);
+
+			position = SECTOR_SIZE;
+			size = 0;
+		}
 	}
 }
 
-void pathfinding_update_nodes(pathfinding_t* p)
+void pf_update_nodes(pathfinding_t* p)
 {
-	trimatrix_t m;
-	matrix_init(&m, p->portals.size);
-
 	//for ()
 }
 
-unsigned pathfinding_sector_index(pathfinding_t p, unsigned x, unsigned y)
+unsigned pf_sector_index(pathfinding_t p, unsigned x, unsigned y)
 {
 	unsigned i = x/SECTOR_SIZE;
 	unsigned j = y/SECTOR_SIZE;
@@ -233,7 +276,7 @@ unsigned pathfinding_sector_index(pathfinding_t p, unsigned x, unsigned y)
 	return i*p.y + j;
 }
 
-void pathfinding_sectorpath(pathfinding_t p, unsigned from_x, unsigned from_y, unsigned to_x, unsigned to_y)
+void pf_sectorpath(pathfinding_t p, unsigned from_x, unsigned from_y, unsigned to_x, unsigned to_y)
 {
 	
 }

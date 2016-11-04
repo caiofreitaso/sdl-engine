@@ -4,7 +4,7 @@
 #include "map.h"
 #include "../point.h"
 #include "../contiguous.h"
-#include "../trimatrix.h"
+#include "../sparse.h"
 
 #define SECTOR_SIZE 16
 
@@ -81,9 +81,9 @@ typedef struct sector_portal {
 } sector_portal_t;
 
 typedef struct sector_node {
-	unsigned       dirty;   //dirty bit, for when buildings change the landscape
-	array_t        portals; //array of pointers to portals
-	cost_sector_t *cost;    //pointer to the sector, since many will be flat
+	unsigned dirty;   //dirty bit, for when buildings change the landscape
+	array_t  portals; //array of pointers to portals
+	unsigned cost;    //index of the sector, since many will be flat
 } sector_node_t;
 
 typedef struct {
@@ -101,23 +101,24 @@ typedef struct {
 } path_node_t;
 
 typedef struct {
-	unsigned x;        //size of the map (horizontal)
-	unsigned y;        //size of the map (vertical)
-	trimatrix_t graph; //distance matrix for all portals
-	array_t costs;     //array of cost_sector
-	array_t sectors;   //array of sector_node
-	array_t portals;   //array of sector_portal
-	array_t flows;     //array of flow_sector* for future free()
-	array_t paths;     //array 
+	unsigned x;      //size of the map (horizontal)
+	unsigned y;      //size of the map (vertical)
+	sparse_t graph;  //distance matrix for all portals
+	array_t costs;   //array of cost_sector
+	array_t sectors; //array of sector_node
+	array_t portals; //array of sector_portal
+	array_t flows;   //array of flow_sector* for future free()
+	array_t paths;   //array 
 } pathfinding_t;
 
-void     pathfinding_init(pathfinding_t*, map_t);
-void     pathfinding_free(pathfinding_t*);
-void     pathfinding_init_sector(pathfinding_t*, map_t, unsigned x, unsigned y);
-void     pathfinding_add_portals(pathfinding_t*, unsigned x, unsigned y);
-void     pathfinding_update_nodes(pathfinding_t* p);
-unsigned pathfinding_sector_index(pathfinding_t, unsigned x, unsigned y);
+void     pf_init(pathfinding_t*, map_t);
+void     pf_free(pathfinding_t*);
+void     pf_init_sector(pathfinding_t*, map_t, unsigned x, unsigned y);
+void     pf_add_portals(pathfinding_t*, unsigned x, unsigned y);
+void     pf_update_nodes(pathfinding_t* p);
+unsigned pf_sector_index(pathfinding_t, unsigned x, unsigned y);
+cost_sector_t* get_cost(pathfinding_t, sector_node_t);
 
-void     pathfinding_sectorpath(pathfinding_t, unsigned from_x, unsigned from_y, unsigned to_x, unsigned to_y);
+void     pf_sectorpath(pathfinding_t, unsigned from_x, unsigned from_y, unsigned to_x, unsigned to_y);
 
 #endif

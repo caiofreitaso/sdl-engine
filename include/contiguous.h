@@ -34,4 +34,5 @@ int   array_del (array_t* target, int index);
 int   array_pop (array_t* target);
 void  array_free(array_t  target);
 
+void  array_shift (void* ptr, size_t element, unsigned size, unsigned start, unsigned pos);
 #endif

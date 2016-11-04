@@ -5,8 +5,8 @@
 #include "../contiguous.h"
 
 typedef struct {
-	unsigned short height;
-	unsigned char  terrain;
+	unsigned char height;
+	unsigned char terrain;
 } map_point_t;
 
 typedef enum {
