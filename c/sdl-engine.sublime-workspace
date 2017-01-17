@@ -1,0 +1,1779 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"reso",
+				"resolution_t"
+			],
+			[
+				"hei",
+				"height"
+			],
+			[
+				"DEA",
+				"DEFAULT_CAMERA"
+			],
+			[
+				"pf",
+				"printf\tprintf …"
+			],
+			[
+				"sec",
+				"sectors"
+			],
+			[
+				"PF",
+				"printf"
+			],
+			[
+				"pa",
+				"pathfinding_add_portals"
+			],
+			[
+				"BL",
+				"BLCKD_TERR"
+			],
+			[
+				"un",
+				"uniform_cost"
+			],
+			[
+				"gle",
+				"glEnableClientState"
+			],
+			[
+				"p",
+				"printf\tprintf …"
+			],
+			[
+				"WA",
+				"WATER_TERR"
+			],
+			[
+				"dis",
+				"distance"
+			],
+			[
+				"seco",
+				"second_dist"
+			],
+			[
+				"min",
+				"minimum_dist"
+			],
+			[
+				"hm",
+				"heightmap"
+			],
+			[
+				"map",
+				"map_t"
+			],
+			[
+				"path",
+				"pathfinding_t"
+			],
+			[
+				"sectot",
+				"sector_window_t"
+			],
+			[
+				"costs",
+				"cost_sector_t"
+			],
+			[
+				"arra",
+				"array_t"
+			],
+			[
+				"ar",
+				"argv"
+			],
+			[
+				"fl",
+				"flow_sector_t"
+			],
+			[
+				"int",
+				"integ_sector_t"
+			],
+			[
+				"unitt",
+				"unit_type_t"
+			],
+			[
+				"array",
+				"array_at"
+			],
+			[
+				"set",
+				"settings_t"
+			],
+			[
+				"inc",
+				"increment"
+			],
+			[
+				"arr",
+				"array_at"
+			],
+			[
+				"ARRA",
+				"ARRAY_INITIAL_RESERVE"
+			],
+			[
+				"size",
+				"size_t"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/caio/Downloads/Tesselation_Tutorial/src/Main.cpp",
+			"settings":
+			{
+				"buffer_size": 4672,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "include/graphics/render.h",
+			"settings":
+			{
+				"buffer_size": 376,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/scene.c",
+			"settings":
+			{
+				"buffer_size": 6208,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/map/heightmap.h",
+			"settings":
+			{
+				"buffer_size": 726,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/map/map.h",
+			"settings":
+			{
+				"buffer_size": 525,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/graphics/color.h",
+			"settings":
+			{
+				"buffer_size": 931,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/graphics/light.h",
+			"settings":
+			{
+				"buffer_size": 444,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/color.c",
+			"settings":
+			{
+				"buffer_size": 1344,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/contiguous.c",
+			"settings":
+			{
+				"buffer_size": 1700,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/flowfield.c",
+			"settings":
+			{
+				"buffer_size": 5938,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/math/point.h",
+			"settings":
+			{
+				"buffer_size": 1208,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/graphics/camera.h",
+			"settings":
+			{
+				"buffer_size": 366,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/game/game.h",
+			"settings":
+			{
+				"buffer_size": 338,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/game/settings.h",
+			"settings":
+			{
+				"buffer_size": 786,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/camera.c",
+			"settings":
+			{
+				"buffer_size": 225,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/game.c",
+			"settings":
+			{
+				"buffer_size": 1191,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "#include \"../include/map/heightmap.h\"\n\nconst float HEIGHT_SCALE = 0.03125;\n\nvoid heightmap_init(heightmap_t* h, map_t* m)\n{\n\tunsigned i, j;\n\n\t//memory allocation\n\tunsigned f_size = m->x * m->y * 2;\n\tunsigned v_size = (m->x + 1) * (m->y + 1);\n\tunsigned i_size = ((m->y + 1) * 2) * m->x + m->x - 1;\n\t\n\th->r_index = v_size;\n\n\th->vertices.increment = sizeof(vertex_t);\n\th->vertices.reserved  = h->vertices.size = v_size;\n\th->vertices.array     = calloc(v_size, sizeof(vertex_t));\n\n\th->indices.increment = sizeof(unsigned);\n\th->indices.reserved  = h->indices.size = i_size;\n\th->indices.array     = calloc(i_size, sizeof(unsigned));\n\n\t//set vertex positions\n\theightmap_set_vert(h, *m);\n\n\t//set triangles\n\theightmap_set_idx(h, *m);\n\n\t//get face normals\n\tstruct face_ext faces = heightmap_faces(h, f_size);\n\t//get vertices normals\n\theightmap_normals(h, *m, faces.normals, f_size);\n\n\tm->areas = faces.areas;\n}\n\nvoid heightmap_free(heightmap_t h)\n{\n\tarray_free(h.vertices);\n\tarray_free(h.indices);\n}\n\nvoid heightmap_set_vert(heightmap_t* h, map_t m)\n{\n\tunsigned i, j;\n\n\tat(h->vertices,0, vertex_t)->position.x = 0;\n\tat(h->vertices,0, vertex_t)->position.y = 0;\n\tat(h->vertices,0, vertex_t)->position.z = m.field[0].height*HEIGHT_SCALE;\n\tat(h->vertices,0, vertex_t)->color.r = m.field[0].height*HEIGHT_SCALE;\n\n\tfor (i = 1; i < m.y+1; i++)\n\t{\n\t\tat(h->vertices,i, vertex_t)->position.x = 0;\n\t\tat(h->vertices,i, vertex_t)->position.y = i;\n\t\tat(h->vertices,i, vertex_t)->position.z = m.field[i-1].height*HEIGHT_SCALE;\n\t\tat(h->vertices,i, vertex_t)->color.r = m.field[i-1].height*HEIGHT_SCALE;\n\t}\n\n\tfor (i = 1; i < m.x+1; i++)\n\t\tfor (j = 0; j < m.y+1; j++)\n\t\t{\n\t\t\tat(h->vertices,i*(m.y+1)+j, vertex_t)->position.x = i;\n\t\t\tat(h->vertices,i*(m.y+1)+j, vertex_t)->position.y = j;\n\t\t\tif (j)\n\t\t\t{\n\t\t\t\tat(h->vertices,i*(m.y+1)+j, vertex_t)->position.z =\n\t\t\t\t\tm.field[((i-1)*m.y)+j-1].height * HEIGHT_SCALE;\n\t\t\t\tat(h->vertices,i*(m.y+1)+j, vertex_t)->color.r =\n\t\t\t\t\tm.field[((i-1)*m.y)+j-1].height * HEIGHT_SCALE;\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tat(h->vertices,i*(m.y+1)+j, vertex_t)->color.r =\n\t\t\t\t\tm.field[((i-1)*m.y)+j].height * HEIGHT_SCALE;\n\n\t\t\t}\n\t\t}\n}\n\nvoid heightmap_set_idx(heightmap_t* h, map_t m)\n{\n\tunsigned i, j;\n\n\tunsigned *face_ptr = (unsigned*)h->indices.array;\n\tfor (i = 0; i < m.x; i++)\n\t{\n\t\tfor (j = 0; j < m.y+1; j++)\n\t\t{\n\t\t\t*face_ptr = i*(m.y+1)+j;\n\t\t\tface_ptr++;\n\t\t\t*face_ptr = (i+1)*(m.y+1)+j;\n\t\t\tface_ptr++;\n\t\t}\n\t\tif (i < m.x-1)\n\t\t{\n\t\t\t*face_ptr = h->r_index;\n\t\t\tface_ptr++;\n\t\t}\n\t}\n}\n\nstruct face_ext heightmap_faces(heightmap_t* h, unsigned f_size)\n{\n\tstruct face_ext ret;\n\n\tret.normals = malloc(f_size * sizeof(point3_t));\n\tret.areas   = malloc(f_size * sizeof(float));\n\n\tunsigned *face_ptr = (unsigned*)h->indices.array;\n\tunsigned i = 0;\n\tdo\n\t{\n\t\tface_t face = *((face_t*) face_ptr);\n\n\t\tif (face.c == h->r_index)\n\t\t{\n\t\t\tface_ptr ++;\n\t\t\tface_ptr ++;\n\t\t}\n\t\telse\n\t\t{\n\t\t\tret.normals[i] = face_normal(*h,face);\n\t\t\tret.areas  [i] = face_area(*h,face);\n\t\t\tret.normals[i] = mul3D(ret.normals[i], ret.areas[i]);\n\t\t\ti++;\n\t\t}\n\n\t\tface_ptr++;\n\t} while (i < f_size);\n\n\treturn ret;\n}\n\n\nvoid heightmap_normals(heightmap_t* h, map_t m, point3_t* normals, unsigned f_size)\n{\n\tunsigned i, j;\n\n\tunsigned v_size = h->vertices.size;\n\n\tpoint3_t *normal;\n\n\t//first\n\tat(h->vertices,0,vertex_t)->normal = normalize3D(normals[0]);\n\t//last of 1st row\n\tnormal = &at(h->vertices,m.y,vertex_t)->normal;\n\t*normal = normalize3D(add3D(normals[2*m.y-1], normals[2*m.y-2]));\n\n\n\t//first row\n\tfor (i = 1; i < m.y; i++)\n\t{\n\t\tnormal = &at(h->vertices,i,vertex_t)->normal;\n\t\t*normal = origin3D;\n\t\tfor (j = 0; j < 3; j++)\n\t\t\t*normal = add3D(*normal, normals[2*i-j]);\n\t\t*normal = normalize3D(*normal);\n\t}\n\n\t//first column\n\tfor (i = 1; i < m.x; i++)\n\t{\n\t\tnormal = &at(h->vertices,i*(m.y+1),vertex_t)->normal;\n\t\t*normal = add3D(normals[2*(i-1)*m.y],normals[2*(i-1)*m.y+1]);\n\t\t*normal = add3D(*normal,normals[i*m.y]);\n\t\t*normal = normalize3D(*normal);\n\t}\n\n\t//last column\n\tfor (i = 1; i < m.x; i++)\n\t{\n\t\tnormal = &at(h->vertices,i*(m.y+1)+m.y,vertex_t)->normal;\n\t\t*normal = add3D(normals[2*i*m.y-1],normals[2*(i+1)*m.y-1]);\n\t\t*normal = add3D(*normal,normals[2*(i+1)*m.y-2]);\n\t\t*normal = normalize3D(*normal);\n\t}\n\n\t//last row\n\tfor (i = 1; i < m.y; i++)\n\t{\n\t\tnormal = &at(h->vertices,m.x*(m.y+1)+i,vertex_t)->normal;\n\t\t*normal = origin3D;\n\t\tint k;\n\t\tfor (k = -1; k < 2; k++)\n\t\t\t*normal = add3D(*normal, normals[f_size-m.y+2*i+k]);\n\t\t*normal = normalize3D(*normal);\n\t}\n\n\t//middle\n\tfor (i = 1; i < m.x; i++)\n\t\tfor (j = 1; j < m.y; j++)\n\t\t{\n\t\t\tnormal = &at(h->vertices,i*(m.y+1)+j,vertex_t)->normal;\n\t\t\t*normal =\n\t\t\t\tadd3D(\n\t\t\t\t\tadd3D(\n\t\t\t\t\t\tadd3D(\n\t\t\t\t\t\t\tnormals[2*i*m.x+2*j],\n\t\t\t\t\t\t\tnormals[2*i*m.x+2*j-1]\n\t\t\t\t\t\t),\n\t\t\t\t\t\tadd3D(\n\t\t\t\t\t\t\tnormals[2*i*m.x+2*j-2],\n\t\t\t\t\t\t\tnormals[2*(i-1)*m.x+2*j-1]\n\t\t\t\t\t\t)\n\t\t\t\t\t),\n\t\t\t\t\tadd3D(\n\t\t\t\t\t\tnormals[2*(i-1)*m.x+2*j],\n\t\t\t\t\t\tnormals[2*(i-1)*m.x+2*j+1]\n\t\t\t\t\t)\n\t\t\t\t);\n\t\t\t*normal = normalize3D(*normal);\n\t\t}\n\n\t//first of last row\n\tnormal = &at(h->vertices,v_size-m.y-1,vertex_t)->normal;\n\t*normal = normalize3D(add3D(normals[f_size-2*m.y], normals[f_size-2*m.y+1]));\n\t//last of all\n\tnormal = &at(h->vertices,h->vertices.size-1,vertex_t)->normal;\n\t*normal = normalize3D(normals[f_size-1]);\n\n\tfree(normals);\n}\n\npoint3_t face_normal(heightmap_t h, face_t f)\n{\n\tpoint3_t normal = normal3D(at(h.vertices,f.b,vertex_t)->position,\n\t\t\t\t\t\tat(h.vertices,f.a,vertex_t)->position,\n\t\t\t\t\t\tat(h.vertices,f.c,vertex_t)->position);\n\tif (normal.v[2] < 0)\n\t\tnormal = mul3D(normal,-1.0f);\n\treturn normal;\n}\n\nfloat face_area(heightmap_t h, face_t f)\n{\n\treturn area3D(at(h.vertices,f.a,vertex_t)->position,\n\t\t\tat(h.vertices,f.b,vertex_t)->position,\n\t\t\tat(h.vertices,f.c,vertex_t)->position);\n}",
+			"file": "src/heightmap.c",
+			"file_size": 5646,
+			"file_write_time": 131241492109817778,
+			"settings":
+			{
+				"buffer_size": 5645,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/light.c",
+			"settings":
+			{
+				"buffer_size": 894,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/render.c",
+			"settings":
+			{
+				"buffer_size": 1343,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main.c",
+			"settings":
+			{
+				"buffer_size": 1478,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/map.c",
+			"settings":
+			{
+				"buffer_size": 607,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/point.c",
+			"settings":
+			{
+				"buffer_size": 2198,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/settings.c",
+			"settings":
+			{
+				"buffer_size": 467,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/sparse.c",
+			"settings":
+			{
+				"buffer_size": 5159,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/unit.c",
+			"settings":
+			{
+				"buffer_size": 153,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/flowfield/flowfield.h",
+			"settings":
+			{
+				"buffer_size": 3112,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "#ifndef UNIT_H\n#define UNIT_H\n\n#include \"../math/point.h\"\n#include \"../util/contiguous.h\"\n#include <omp.h>\n\ntypedef struct\n{\n\tpoint3_t *position;\n\tpoint3_t *target;\n\tfloat    *speed;\n\n\tunsigned *health;\n\tunsigned *armor;\n\tunsigned *damage;\n\n\tunsigned *type;\n\n\tunsigned reserved;\n\tunsigned size;\n} units_t;\n\n\n\nvoid units_move(units_t *u, array_t heightmap);\nvoid units_\n\n#endif",
+			"file": "include/unit/unit.h",
+			"file_size": 347,
+			"file_write_time": 131242328200356603,
+			"settings":
+			{
+				"buffer_size": 376,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 838,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/graphics/vertex.h",
+			"settings":
+			{
+				"buffer_size": 335,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/scene/scene.h",
+			"settings":
+			{
+				"buffer_size": 1065,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/unit/unit-type.h",
+			"settings":
+			{
+				"buffer_size": 1244,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/math/sparse.h",
+			"settings":
+			{
+				"buffer_size": 692,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/unit-type.c",
+			"settings":
+			{
+				"buffer_size": 39,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 112.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/caio/Documents/programming/sdl-engine/src/trimatrix.c",
+		"/home/caio/Documents/programming/sdl-engine/src/render.c",
+		"/home/caio/Documents/programming/sdl-engine/include/light.h",
+		"/home/caio/Documents/programming/sdl-engine/include/graphics/scene.h",
+		"/home/caio/Documents/programming/sdl-engine/include/settings.h",
+		"/home/caio/Documents/programming/sdl-engine/include/game.h",
+		"/home/caio/Documents/programming/sdl-engine/include/math/sparse.h",
+		"/home/caio/Downloads/Tesselation_Tutorial/src/glsl.h",
+		"/home/caio/Documents/programming/sdl-engine/src/light.c",
+		"/home/caio/Documents/programming/sdl-engine/Makefile",
+		"/home/caio/Documents/programming/sdl-engine/include/sparse.h",
+		"/home/caio/Documents/programming/sdl-engine/include/contiguous.h",
+		"/home/caio/Documents/programming/sdl-engine/src/contiguous.c",
+		"/home/caio/Documents/programming/sdl-engine/test/matrix.c",
+		"/home/caio/Documents/programming/sdl-engine/test/simd-sum.c",
+		"/home/caio/Documents/programming/sdl-engine/include/point.h",
+		"/home/caio/Documents/programming/sdl-engine/src/main.c",
+		"/home/caio/Documents/programming/sdl-engine/include/render/render.h",
+		"/home/caio/Documents/programming/sdl-engine/src/game.c",
+		"/home/caio/Documents/programming/sdl-engine/test/map2.map",
+		"/home/caio/Documents/programming/sdl-engine/src/flowfield.c",
+		"/home/caio/Documents/programming/sdl-engine/test/pathfinding-init-test.c",
+		"/home/caio/Documents/programming/sdl-engine/test/map.map",
+		"/home/caio/Documents/programming/sdl-engine/src/settings.c",
+		"/home/caio/Documents/programming/sdl-engine/include/world/map.h",
+		"/home/caio/Documents/programming/sdl-engine/include/world/unit.h",
+		"/home/caio/Documents/programming/sdl-engine/src/map.c",
+		"/home/caio/Documents/programming/sdl-engine/test/mapheight-test.c",
+		"/home/caio/Documents/programming/sdl-engine/test/heightmap.c",
+		"/home/caio/.i3/i3status.conf",
+		"/home/caio/.i3/config.terran",
+		"/home/caio/Documents/programming/mo-boo/irace/aco/parameters.txt",
+		"/home/caio/Documents/programming/mo-boo/irace/knee/parameters.txt",
+		"/home/caio/Documents/programming/mo-boo/knee2-muta-speedling.out",
+		"/home/caio/Documents/programming/mo-boo/knee2-muta-speedling.err",
+		"/home/caio/.i3/config.zerg",
+		"/home/caio/.i3/config",
+		"/home/caio/Documents/programming/mo-boo/irace/nsga2/parameters.txt",
+		"/home/caio/Documents/programming/mo-boo/src/knee-archiver.cpp",
+		"/home/caio/Documents/programming/mo-boo/include/knee-archiver.h",
+		"/home/caio/Documents/programming/mo-boo/src/nsga2-archiver.cpp",
+		"/home/caio/Documents/programming/mo-boo/src/main.cpp",
+		"/home/caio/Documents/programming/mo-boo/src/mograsp.cpp",
+		"/home/caio/Documents/programming/mo-boo/include/create_solution.h",
+		"/home/caio/Documents/programming/mo-boo/irace/mograsp/parameters.txt",
+		"/home/caio/Documents/programming/mo-boo/experiments1.sh",
+		"/home/caio/Documents/programming/mo-boo/src/create_solution.cpp",
+		"/home/caio/Documents/programming/mo-boo/src/decision-maker.cpp",
+		"/home/caio/Documents/programming/mo-boo/src/optimizer.cpp",
+		"/home/caio/Documents/programming/sdl-engine/include/vertex.h",
+		"/home/caio/.conkyrc-terran",
+		"/home/caio/.i3/config.protoss",
+		"/home/caio/bin/xfce-i3",
+		"/home/caio/sketchbook/libraries/readme.txt",
+		"/home/caio/Documents/programming/sdl-engine/test/contiguous-test.c",
+		"/home/caio/Documents/programming/sdl-engine/test.c",
+		"/home/caio/Documents/programming/sdl-engine/include/economy/economy.h",
+		"/home/caio/Documents/programming/sdl-engine/include/world/collision.h",
+		"/home/caio/Documents/programming/sdl-engine/include/units/unit.h",
+		"/home/caio/Documents/programming/sdl-engine/include/units/unit-type.h",
+		"/home/caio/Documents/programming/sdl-engine/test/map-stress.c",
+		"/home/caio/Documents/programming/sdl-engine/test/costfield-stress.c",
+		"/home/caio/Documents/programming/mo-boo/makefile",
+		"/home/caio/Documents/programming/sdl-engine/include/sdl_interface.h",
+		"/home/caio/Documents/programming/mo-boo/include/weighted-dm.h",
+		"/home/caio/Documents/programming/mo-boo/include/decision-maker.h",
+		"/home/caio/Documents/programming/mo-boo/include/buildorder.h",
+		"/home/caio/Documents/programming/mo-boo/include/nsga2-archiver.h",
+		"/home/caio/Documents/programming/mo-boo/include/nd-archiver.h",
+		"/home/caio/Documents/programming/mo-boo/include/agarchiver.h",
+		"/home/caio/Documents/programming/mo-boo/include/objective.h",
+		"/home/caio/Dropbox/TCC/dissertacao/Apresentacao.tex",
+		"/home/caio/Dropbox/TCC/Monografia (LaTeX)/Includes/Resumo.tex",
+		"/home/caio/Dropbox/TCC/dissertacao/Capitulos/AnexoA.tex",
+		"/home/caio/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/caio/.config/sublime-text-3/Packages/User/Distraction Free.sublime-settings",
+		"/home/caio/.config/sublime-text-3/Packages/User/LaTeX.sublime-settings",
+		"/home/caio/Dropbox/TCC/dissertacao/Includes/FolhaAprovacao.aux",
+		"/home/caio/Dropbox/TCC/dissertacao/Includes/FolhaRosto.aux",
+		"/home/caio/.conkyrc-protoss",
+		"/home/caio/.conkyrc-zerg",
+		"/home/caio/.ConkyWizard"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"display",
+			"graphics",
+			"resolution",
+			"display",
+			"RENDER_H",
+			"diff",
+			"i]",
+			"i",
+			"-mmmx -msse -msse2 -msse3 -malign-double -m64",
+			"angle",
+			"4096",
+			"*map.y+j",
+			"800",
+			"SDL_GetTicks()",
+			"     ",
+			"PI",
+			"4096",
+			"256",
+			"cam",
+			"CAM",
+			"cam",
+			"long long",
+			"unsigned",
+			"long long ",
+			"long",
+			"unsigned",
+			"400",
+			"/100.0",
+			"1536",
+			"i",
+			"x",
+			"4096",
+			"( ",
+			"m.",
+			"\tprintf(\"-----\\n\");\n\n",
+			"pathfinding_",
+			" pathfinding_",
+			"p->costs.array[",
+			"p->cost",
+			"new.cost",
+			"costs",
+			"m.",
+			"cost_sector_t",
+			"p->",
+			">x",
+			"m.",
+			"->cost",
+			"R:",
+			"RR ",
+			"  = ",
+			"(*(new.cost))[i-x][j-y]",
+			"((*(new.cost))[i-x][j-y]",
+			"(*(new.cost))[i-x][j-y]",
+			".2",
+			".1",
+			",21",
+			"GL_LINE",
+			"m.",
+			" %.1f",
+			"field[i].terrain",
+			"\\s+\\n",
+			"window_t",
+			"game",
+			"g.",
+			"int",
+			"glutGet",
+			"  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21 ",
+			"  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21 ",
+			"  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21 ",
+			"  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21 ",
+			"16",
+			"->tiles",
+			"\"Image\"",
+			"\"Steam\"",
+			"\"Image\"",
+			"\"Steam\"",
+			"\"WEB\"",
+			"=30",
+			"=12",
+			"COLLISION",
+			"g->display.resolution",
+			"h->VBO",
+			"h->VAO",
+			"heightmap",
+			" ",
+			"}, {",
+			", ",
+			"    ",
+			"pathfinding_t",
+			"const",
+			"long",
+			"->",
+			"16384",
+			"65536",
+			"8",
+			"height",
+			"char",
+			"height",
+			" ",
+			",",
+			"unsigned char",
+			"unsigned",
+			"2_t",
+			"2D",
+			"cost",
+			"UNIT_",
+			"screenSurface",
+			"UNDEFINED",
+			"g++",
+			"0; i",
+			" i",
+			"w[",
+			"int",
+			"min",
+			"_uev",
+			"uev",
+			"unsigned",
+			"s<d",
+			"double",
+			"unsigned",
+			"por",
+			"Problema de ",
+			"Problema P",
+			"Problema de ",
+			"section",
+			"sub",
+			"section",
+			"\\emph{"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"\\n",
+			"21",
+			"  "
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/caio/Downloads/Tesselation_Tutorial/src/Main.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4672,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2155,
+								2155
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "include/graphics/render.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 376,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								139,
+								139
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/scene.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6208,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3483,
+								3483
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2964.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "include/map/heightmap.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 726,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2,
+								2
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "include/map/map.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 525,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								66,
+								66
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 26,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "include/graphics/color.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 931,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								923,
+								923
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 27,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "include/graphics/light.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 444,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								56,
+								56
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 20,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/color.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1344,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1344,
+								1344
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/C++/C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/contiguous.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1700,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								77,
+								77
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/flowfield.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5938,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								30,
+								30
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 25,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "include/math/point.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1208,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								271,
+								271
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "include/graphics/camera.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 366,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								195,
+								195
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 29,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "include/game/game.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 338,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								53,
+								53
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 32,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "include/game/settings.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 786,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 30,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "src/camera.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 225,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								225,
+								225
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 23,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 15,
+					"file": "src/game.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1191,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								164,
+								164
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 28,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "src/heightmap.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5645,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1058,
+								1058
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "src/light.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 894,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								29,
+								29
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 24,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "src/render.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1343,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								444,
+								444
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "src/main.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1478,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1078,
+								1078
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "src/map.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 607,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								329,
+								329
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 31,
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"file": "src/point.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2198,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2198,
+								2198
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1872.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 21,
+					"type": "text"
+				},
+				{
+					"buffer": 22,
+					"file": "src/settings.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 467,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26,
+								26
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 22,
+					"type": "text"
+				},
+				{
+					"buffer": 23,
+					"file": "src/sparse.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5159,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								374,
+								374
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 24,
+					"file": "src/unit.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 153,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								153,
+								153
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 25,
+					"file": "include/flowfield/flowfield.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3112,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								256,
+								256
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 26,
+					"file": "include/unit/unit.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 376,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								368,
+								368
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 27,
+					"file": "Makefile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 838,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								838,
+								838
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 28,
+					"file": "include/graphics/vertex.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 335,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								335,
+								335
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 29,
+					"file": "include/scene/scene.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1065,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1065,
+								1065
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 30,
+					"file": "include/unit/unit-type.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1244,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								304,
+								304
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 31,
+					"file": "include/math/sparse.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 692,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								91,
+								91
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 32,
+					"file": "src/unit-type.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 39,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								39,
+								39
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/C++/C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				2,
+				0,
+				3,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.33,
+			0.66,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "sdl-engine.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

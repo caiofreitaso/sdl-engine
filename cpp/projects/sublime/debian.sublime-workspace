@@ -1,0 +1,1109 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"reso",
+				"resolution_t"
+			],
+			[
+				"hei",
+				"height"
+			],
+			[
+				"DEA",
+				"DEFAULT_CAMERA"
+			],
+			[
+				"pf",
+				"printf\tprintf …"
+			],
+			[
+				"sec",
+				"sectors"
+			],
+			[
+				"PF",
+				"printf"
+			],
+			[
+				"pa",
+				"pathfinding_add_portals"
+			],
+			[
+				"BL",
+				"BLCKD_TERR"
+			],
+			[
+				"un",
+				"uniform_cost"
+			],
+			[
+				"gle",
+				"glEnableClientState"
+			],
+			[
+				"p",
+				"printf\tprintf …"
+			],
+			[
+				"WA",
+				"WATER_TERR"
+			],
+			[
+				"dis",
+				"distance"
+			],
+			[
+				"seco",
+				"second_dist"
+			],
+			[
+				"min",
+				"minimum_dist"
+			],
+			[
+				"hm",
+				"heightmap"
+			],
+			[
+				"map",
+				"map_t"
+			],
+			[
+				"path",
+				"pathfinding_t"
+			],
+			[
+				"sectot",
+				"sector_window_t"
+			],
+			[
+				"costs",
+				"cost_sector_t"
+			],
+			[
+				"arra",
+				"array_t"
+			],
+			[
+				"ar",
+				"argv"
+			],
+			[
+				"fl",
+				"flow_sector_t"
+			],
+			[
+				"int",
+				"integ_sector_t"
+			],
+			[
+				"unitt",
+				"unit_type_t"
+			],
+			[
+				"array",
+				"array_at"
+			],
+			[
+				"set",
+				"settings_t"
+			],
+			[
+				"inc",
+				"increment"
+			],
+			[
+				"arr",
+				"array_at"
+			],
+			[
+				"ARRA",
+				"ARRAY_INITIAL_RESERVE"
+			],
+			[
+				"size",
+				"size_t"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/shared/documents/documents/programming/projetos-c++/game-engine/include/game-engine/core/const_array.h",
+			"settings":
+			{
+				"buffer_size": 1688,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/shared/documents/documents/programming/projetos-c++/game-engine/include/game-engine/core/transform.h",
+			"settings":
+			{
+				"buffer_size": 859,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/shared/documents/documents/programming/projetos-c++/game-engine/include/game-engine/core/variadic.h",
+			"settings":
+			{
+				"buffer_size": 1361,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/shared/documents/documents/programming/projetos-c++/game-engine/include/game-engine/math/fixed.h",
+			"settings":
+			{
+				"buffer_size": 5707,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/shared/documents/documents/programming/projetos-c++/game-engine/include/game-engine/math/fixed_point.h",
+			"settings":
+			{
+				"buffer_size": 13,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/shared/documents/documents/programming/projetos-c++/game-engine/include/game-engine/math/named_point.h",
+			"settings":
+			{
+				"buffer_size": 749,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/shared/documents/documents/programming/projetos-c++/game-engine/include/game-engine/math/point.h",
+			"settings":
+			{
+				"buffer_size": 4125,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/shared/documents/documents/programming/projetos-c++/game-engine/include/game-engine/math/sparse.h",
+			"settings":
+			{
+				"buffer_size": 5637,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/shared/documents/documents/programming/projetos-c++/game-engine/include/game-engine/math/util.h",
+			"settings":
+			{
+				"buffer_size": 413,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/shared/documents/documents/programming/projetos-c++/game-engine/src/math/fixed.cc",
+			"settings":
+			{
+				"buffer_size": 35,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/shared/documents/documents/programming/projetos-c++/game-engine/src/math/fixed.t.cc",
+			"settings":
+			{
+				"buffer_size": 1299,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/shared/documents/documents/programming/projetos-c++/game-engine/src/math/point.cc",
+			"settings":
+			{
+				"buffer_size": 88,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/shared/documents/documents/programming/projetos-c++/game-engine/src/math/point.t.cc",
+			"settings":
+			{
+				"buffer_size": 2134,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/shared/documents/documents/programming/projetos-c++/game-engine/src/math/sparse.cc",
+			"settings":
+			{
+				"buffer_size": 37,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/shared/documents/documents/programming/projetos-c++/game-engine/src/math/sparse.t.cc",
+			"settings":
+			{
+				"buffer_size": 711,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 112.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/shared/documents/documents/programming/projetos-c++/game-engine"
+	],
+	"file_history":
+	[
+		"/home/caio/Documents/programming/sdl-engine/src/unit-type.c",
+		"/home/caio/Documents/programming/sdl-engine/include/math/sparse.h",
+		"/home/caio/Documents/programming/sdl-engine/include/unit/unit-type.h",
+		"/home/caio/Documents/programming/sdl-engine/include/scene/scene.h",
+		"/home/caio/Documents/programming/sdl-engine/include/graphics/vertex.h",
+		"/home/caio/Documents/programming/sdl-engine/Makefile",
+		"/home/caio/Documents/programming/sdl-engine/include/unit/unit.h",
+		"/home/caio/Documents/programming/sdl-engine/include/flowfield/flowfield.h",
+		"/home/caio/Documents/programming/sdl-engine/src/unit.c",
+		"/home/caio/Documents/programming/sdl-engine/src/sparse.c",
+		"/home/caio/Documents/programming/sdl-engine/src/settings.c",
+		"/home/caio/Documents/programming/sdl-engine/src/point.c",
+		"/home/caio/Documents/programming/sdl-engine/src/map.c",
+		"/home/caio/Documents/programming/sdl-engine/src/main.c",
+		"/home/caio/Documents/programming/sdl-engine/src/render.c",
+		"/home/caio/Documents/programming/sdl-engine/src/light.c",
+		"/home/caio/Documents/programming/sdl-engine/src/heightmap.c",
+		"/home/caio/Documents/programming/sdl-engine/src/game.c",
+		"/home/caio/Documents/programming/sdl-engine/src/camera.c",
+		"/home/caio/Documents/programming/sdl-engine/include/game/settings.h",
+		"/home/caio/Documents/programming/sdl-engine/include/game/game.h",
+		"/home/caio/Documents/programming/sdl-engine/include/graphics/camera.h",
+		"/home/caio/Documents/programming/sdl-engine/include/math/point.h",
+		"/home/caio/Documents/programming/sdl-engine/src/flowfield.c",
+		"/home/caio/Documents/programming/sdl-engine/src/contiguous.c",
+		"/home/caio/Documents/programming/sdl-engine/src/color.c",
+		"/home/caio/Documents/programming/sdl-engine/include/graphics/light.h",
+		"/home/caio/Documents/programming/sdl-engine/include/graphics/color.h",
+		"/home/caio/Documents/programming/sdl-engine/include/map/map.h",
+		"/home/caio/Documents/programming/sdl-engine/include/map/heightmap.h",
+		"/home/caio/Documents/programming/sdl-engine/src/scene.c",
+		"/home/caio/Documents/programming/sdl-engine/include/graphics/render.h",
+		"/home/caio/Downloads/Tesselation_Tutorial/src/Main.cpp",
+		"/home/caio/Documents/programming/sdl-engine/src/trimatrix.c",
+		"/home/caio/Documents/programming/sdl-engine/include/light.h",
+		"/home/caio/Documents/programming/sdl-engine/include/graphics/scene.h",
+		"/home/caio/Documents/programming/sdl-engine/include/settings.h",
+		"/home/caio/Documents/programming/sdl-engine/include/game.h",
+		"/home/caio/Downloads/Tesselation_Tutorial/src/glsl.h",
+		"/home/caio/Documents/programming/sdl-engine/include/sparse.h",
+		"/home/caio/Documents/programming/sdl-engine/include/contiguous.h",
+		"/home/caio/Documents/programming/sdl-engine/test/matrix.c",
+		"/home/caio/Documents/programming/sdl-engine/test/simd-sum.c",
+		"/home/caio/Documents/programming/sdl-engine/include/point.h",
+		"/home/caio/Documents/programming/sdl-engine/include/render/render.h",
+		"/home/caio/Documents/programming/sdl-engine/test/map2.map",
+		"/home/caio/Documents/programming/sdl-engine/test/pathfinding-init-test.c",
+		"/home/caio/Documents/programming/sdl-engine/test/map.map",
+		"/home/caio/Documents/programming/sdl-engine/include/world/map.h",
+		"/home/caio/Documents/programming/sdl-engine/include/world/unit.h",
+		"/home/caio/Documents/programming/sdl-engine/test/mapheight-test.c",
+		"/home/caio/Documents/programming/sdl-engine/test/heightmap.c",
+		"/home/caio/.i3/i3status.conf",
+		"/home/caio/.i3/config.terran",
+		"/home/caio/Documents/programming/mo-boo/irace/aco/parameters.txt",
+		"/home/caio/Documents/programming/mo-boo/irace/knee/parameters.txt",
+		"/home/caio/Documents/programming/mo-boo/knee2-muta-speedling.out",
+		"/home/caio/Documents/programming/mo-boo/knee2-muta-speedling.err",
+		"/home/caio/.i3/config.zerg",
+		"/home/caio/.i3/config",
+		"/home/caio/Documents/programming/mo-boo/irace/nsga2/parameters.txt",
+		"/home/caio/Documents/programming/mo-boo/src/knee-archiver.cpp",
+		"/home/caio/Documents/programming/mo-boo/include/knee-archiver.h",
+		"/home/caio/Documents/programming/mo-boo/src/nsga2-archiver.cpp",
+		"/home/caio/Documents/programming/mo-boo/src/main.cpp",
+		"/home/caio/Documents/programming/mo-boo/src/mograsp.cpp",
+		"/home/caio/Documents/programming/mo-boo/include/create_solution.h",
+		"/home/caio/Documents/programming/mo-boo/irace/mograsp/parameters.txt",
+		"/home/caio/Documents/programming/mo-boo/experiments1.sh",
+		"/home/caio/Documents/programming/mo-boo/src/create_solution.cpp",
+		"/home/caio/Documents/programming/mo-boo/src/decision-maker.cpp",
+		"/home/caio/Documents/programming/mo-boo/src/optimizer.cpp",
+		"/home/caio/Documents/programming/sdl-engine/include/vertex.h",
+		"/home/caio/.conkyrc-terran",
+		"/home/caio/.i3/config.protoss",
+		"/home/caio/bin/xfce-i3",
+		"/home/caio/sketchbook/libraries/readme.txt",
+		"/home/caio/Documents/programming/sdl-engine/test/contiguous-test.c",
+		"/home/caio/Documents/programming/sdl-engine/test.c",
+		"/home/caio/Documents/programming/sdl-engine/include/economy/economy.h",
+		"/home/caio/Documents/programming/sdl-engine/include/world/collision.h",
+		"/home/caio/Documents/programming/sdl-engine/include/units/unit.h",
+		"/home/caio/Documents/programming/sdl-engine/include/units/unit-type.h",
+		"/home/caio/Documents/programming/sdl-engine/test/map-stress.c",
+		"/home/caio/Documents/programming/sdl-engine/test/costfield-stress.c",
+		"/home/caio/Documents/programming/mo-boo/makefile",
+		"/home/caio/Documents/programming/sdl-engine/include/sdl_interface.h",
+		"/home/caio/Documents/programming/mo-boo/include/weighted-dm.h",
+		"/home/caio/Documents/programming/mo-boo/include/decision-maker.h",
+		"/home/caio/Documents/programming/mo-boo/include/buildorder.h",
+		"/home/caio/Documents/programming/mo-boo/include/nsga2-archiver.h",
+		"/home/caio/Documents/programming/mo-boo/include/nd-archiver.h",
+		"/home/caio/Documents/programming/mo-boo/include/agarchiver.h",
+		"/home/caio/Documents/programming/mo-boo/include/objective.h",
+		"/home/caio/Dropbox/TCC/dissertacao/Apresentacao.tex",
+		"/home/caio/Dropbox/TCC/Monografia (LaTeX)/Includes/Resumo.tex",
+		"/home/caio/Dropbox/TCC/dissertacao/Capitulos/AnexoA.tex",
+		"/home/caio/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/caio/.config/sublime-text-3/Packages/User/Distraction Free.sublime-settings",
+		"/home/caio/.config/sublime-text-3/Packages/User/LaTeX.sublime-settings",
+		"/home/caio/Dropbox/TCC/dissertacao/Includes/FolhaAprovacao.aux",
+		"/home/caio/Dropbox/TCC/dissertacao/Includes/FolhaRosto.aux",
+		"/home/caio/.conkyrc-protoss",
+		"/home/caio/.conkyrc-zerg",
+		"/home/caio/.ConkyWizard"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"display",
+			"graphics",
+			"resolution",
+			"display",
+			"RENDER_H",
+			"diff",
+			"i]",
+			"i",
+			"-mmmx -msse -msse2 -msse3 -malign-double -m64",
+			"angle",
+			"4096",
+			"*map.y+j",
+			"800",
+			"SDL_GetTicks()",
+			"     ",
+			"PI",
+			"4096",
+			"256",
+			"cam",
+			"CAM",
+			"cam",
+			"long long",
+			"unsigned",
+			"long long ",
+			"long",
+			"unsigned",
+			"400",
+			"/100.0",
+			"1536",
+			"i",
+			"x",
+			"4096",
+			"( ",
+			"m.",
+			"\tprintf(\"-----\\n\");\n\n",
+			"pathfinding_",
+			" pathfinding_",
+			"p->costs.array[",
+			"p->cost",
+			"new.cost",
+			"costs",
+			"m.",
+			"cost_sector_t",
+			"p->",
+			">x",
+			"m.",
+			"->cost",
+			"R:",
+			"RR ",
+			"  = ",
+			"(*(new.cost))[i-x][j-y]",
+			"((*(new.cost))[i-x][j-y]",
+			"(*(new.cost))[i-x][j-y]",
+			".2",
+			".1",
+			",21",
+			"GL_LINE",
+			"m.",
+			" %.1f",
+			"field[i].terrain",
+			"\\s+\\n",
+			"window_t",
+			"game",
+			"g.",
+			"int",
+			"glutGet",
+			"  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21 ",
+			"  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21 ",
+			"  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21 ",
+			"  0,21  0,21  0,21  0,21  0,21  0,21  0,21  0,21 ",
+			"16",
+			"->tiles",
+			"\"Image\"",
+			"\"Steam\"",
+			"\"Image\"",
+			"\"Steam\"",
+			"\"WEB\"",
+			"=30",
+			"=12",
+			"COLLISION",
+			"g->display.resolution",
+			"h->VBO",
+			"h->VAO",
+			"heightmap",
+			" ",
+			"}, {",
+			", ",
+			"    ",
+			"pathfinding_t",
+			"const",
+			"long",
+			"->",
+			"16384",
+			"65536",
+			"8",
+			"height",
+			"char",
+			"height",
+			" ",
+			",",
+			"unsigned char",
+			"unsigned",
+			"2_t",
+			"2D",
+			"cost",
+			"UNIT_",
+			"screenSurface",
+			"UNDEFINED",
+			"g++",
+			"0; i",
+			" i",
+			"w[",
+			"int",
+			"min",
+			"_uev",
+			"uev",
+			"unsigned",
+			"s<d",
+			"double",
+			"unsigned",
+			"por",
+			"Problema de ",
+			"Problema P",
+			"Problema de ",
+			"section",
+			"sub",
+			"section",
+			"\\emph{"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"\\n",
+			"21",
+			"  "
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/shared/documents/documents/programming/projetos-c++/game-engine/include/game-engine/core/const_array.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1688,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/shared/documents/documents/programming/projetos-c++/game-engine/include/game-engine/core/transform.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 859,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/shared/documents/documents/programming/projetos-c++/game-engine/include/game-engine/core/variadic.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1361,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "/shared/documents/documents/programming/projetos-c++/game-engine/include/game-engine/math/fixed.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5707,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/shared/documents/documents/programming/projetos-c++/game-engine/include/game-engine/math/fixed_point.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/shared/documents/documents/programming/projetos-c++/game-engine/include/game-engine/math/named_point.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 749,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/shared/documents/documents/programming/projetos-c++/game-engine/include/game-engine/math/point.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4125,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/shared/documents/documents/programming/projetos-c++/game-engine/include/game-engine/math/sparse.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5637,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/shared/documents/documents/programming/projetos-c++/game-engine/include/game-engine/math/util.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 413,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								367,
+								367
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 9,
+					"file": "/shared/documents/documents/programming/projetos-c++/game-engine/src/math/fixed.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 35,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++11/C++11.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/shared/documents/documents/programming/projetos-c++/game-engine/src/math/fixed.t.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1299,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++11/C++11.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "/shared/documents/documents/programming/projetos-c++/game-engine/src/math/point.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 88,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++11/C++11.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/shared/documents/documents/programming/projetos-c++/game-engine/src/math/point.t.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2134,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++11/C++11.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/shared/documents/documents/programming/projetos-c++/game-engine/src/math/sparse.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 37,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++11/C++11.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "/shared/documents/documents/programming/projetos-c++/game-engine/src/math/sparse.t.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 711,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								570,
+								570
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++11/C++11.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				2,
+				0,
+				3,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.33,
+			0.66,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "debian.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 2,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
