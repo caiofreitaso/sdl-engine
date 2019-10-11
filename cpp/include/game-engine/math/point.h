@@ -1,148 +1,72 @@
 #pragma once
-#ifndef POINT_H
-#define POINT_H
+#ifndef GAMEENGINE_MATH_POINT_H_
+#define GAMEENGINE_MATH_POINT_H_
 
-#include <cmath>
 #include <array>
+#include <cmath>
 
-#include <game-engine/core/variadic.h>
+namespace GameEngine {
+namespace Math {
+extern const float POINT_PRECISION;
 
-namespace Engine {
-	namespace Math {
-		extern const float POINT_PRECISION;
+template <class S, unsigned N> struct Point {
+  std::array<S, N> v;
 
-		template<class S, unsigned N>
-		struct Point
-		{
-			std::array<S,N> v;
+public: // operators
+  S &operator[](size_t i);
 
-		public: //operators
-			S&
-			operator[](size_t i) { return v[i]; }
+  constexpr S const &operator[](size_t i) const;
 
-			constexpr S const&
-			operator[](size_t i) const { return v[i]; }
+  Point operator+(Point rhs) const;
+  Point operator-(Point rhs) const;
+  Point operator*(S rhs) const;
+  Point operator/(S rhs) const;
 
-			Point
-			operator+(Point rhs) const
-			{
-				for (size_t i = 0; i < N; i++)
-					rhs.v[i] = v[i] + rhs.v[i];
-				return rhs;
-			}
+  constexpr bool operator==(Point const &rhs) const;
+  constexpr bool operator!=(Point const &rhs) const;
+public: // iterator functions
+  typedef typename std::array<S, N>::iterator iterator;
+  typedef typename std::array<S, N>::const_iterator const_iterator;
 
-			Point
-			operator-(Point rhs) const
-			{
-				for (size_t i = 0; i < N; i++)
-					rhs.v[i] = v[i] - rhs.v[i];
-				return rhs;
-			}
+  iterator begin();
+  iterator end();
 
-			Point
-			operator*(S rhs) const
-			{
-				Point r;
-				for (size_t i = 0; i < N; i++)
-					r.v[i] = v[i] * rhs;
-				return r;
-			}
+  constexpr const_iterator cbegin() const;
+  constexpr const_iterator cend() const;
 
-			Point
-			operator/(S rhs) const
-			{
-				Point r;
-				for (size_t i = 0; i < N; i++)
-					r.v[i] = v[i] / rhs;
-				return r;
-			}
+  constexpr size_t size() const;
 
-			constexpr bool
-			operator==(Point const& rhs) const
-			{
-				for (size_t i = 0; i < N; i++)
-					if (v[i] != rhs.v[i])
-						return false;
-				return true;
-			}
+public: // functions
+  S length() const;
+  void normalize();
 
-			constexpr bool
-			operator!=(Point const& rhs) const
-			{
-				for (size_t i = 0; i < N; i++)
-					if (v[i] != rhs.v[i])
-						return true;
-				return false;
-			}
+public: // friends
+  template <class T, unsigned K>
+  friend Point<T, K> operator*(T, Point<T, K> const &);
+};
 
-		public: //iterator functions
-			typename std::array<S,N>::iterator
-			begin() { return v.begin(); }
+template <class S, unsigned N>
+S dot(Point<S, N> a, Point<S, N> b);
 
-			typename std::array<S,N>::iterator
-			end() { return v.begin(); }
+template <class S>
+Point<S, 3> cross(Point<S, 3> lhs, Point<S, 3> rhs);
 
-			constexpr typename std::array<S,N>::const_iterator
-			cbegin() const { return v.cbegin(); }
+template <class S>
+Point<S, 3> normal(Point<S, 3> a, Point<S, 3> b, Point<S, 3> c);
 
-			constexpr typename std::array<S,N>::const_iterator
-			cend() const { return v.cbegin(); }
+template <class S>
+S area(Point<S, 3> a, Point<S, 3> b, Point<S, 3> c);
 
-			constexpr size_t
-			size() const { return N; }
+template <class S>
+Point<S, 4> homogenous(Point<S, 3> b);
 
-		public: //functions
-			S
-			length() const
-			{
-				S ret{};
-				for (size_t i = 0; i < N; i++)
-					ret = ret + v[i]*v[i];
-				return sqrt(ret);
-			}
+template <class S, unsigned N>
+Point<S, N> operator*(S k, Point<S, N> const &p);
 
-			void
-			normalize()
-			{
-				S len = length();
-				for (size_t i = 0; i < N; i++)
-					v[i] = v[i]/len;
-			}
-
-		public: //friends
-			template<class T, unsigned K>
-			friend Point<T,K> operator*(T,Point<T,K> const&);
-
-		};
-
-		template<class S, unsigned N>
-		S dot(Point<S,N> a, Point<S,N> b)
-		{
-			S ret{};
-			for (size_t i = 0; i < N; i++)
-				ret = ret + a.v[i] * b.v[i];
-			return ret;
-		}
-
-		template<class S>
-		Point<S,3> cross(Point<S,3> lhs, Point<S,3> rhs)
-		{
-			Point<S,3> ret;
-
-			ret[0] = lhs[1]*rhs[2] - lhs[2]*rhs[1];
-			ret[1] = lhs[2]*rhs[0] - lhs[0]*rhs[2];
-			ret[2] = lhs[0]*rhs[1] - lhs[1]*rhs[0];
-			
-			return ret;
-		}
-
-		template<class S, unsigned N>
-		Point<S,N> operator*(S k, Point<S,N> const& p) { return p*k; }
-	}
-
-	typedef Math::Point<float,2> Point2;
-	typedef Math::Point<float,3> Point3;
-
+typedef Math::Point<float, 2> Point2;
+typedef Math::Point<float, 3> Point3;
+typedef Math::Point<float, 4> Point4;
+}
 }
 
 #endif
