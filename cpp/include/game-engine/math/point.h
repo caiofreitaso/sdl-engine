@@ -14,7 +14,6 @@ template <class S, unsigned N> struct Point {
 
 public: // operators
   S &operator[](size_t i);
-
   constexpr S const &operator[](size_t i) const;
 
   Point operator+(Point rhs) const;

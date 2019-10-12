@@ -5,7 +5,7 @@ namespace GameEngine {
 struct Resolution {
   int width;
   int height;
-}
+};
 }
 
 #endif
