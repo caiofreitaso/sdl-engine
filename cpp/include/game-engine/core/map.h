@@ -1,8 +1,8 @@
-#ifndef GAMEENGINE_MAP_MAP_H
-#define GAMEENGINE_MAP_MAP_H
+#ifndef GAMEENGINE_CORE_MAP_H
+#define GAMEENGINE_CORE_MAP_H
 
 #include <fstream>
-#include <vector>
+#include <game-engine/util/string.h>
 
 namespace GameEngine {
 enum Terrain {

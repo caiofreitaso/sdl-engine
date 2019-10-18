@@ -3,7 +3,6 @@
 
 using namespace GameEngine::Math;
 
-namespace {
 TEST(PointTest, Braces) {
   Point<float, 1> a;
 
@@ -91,7 +90,12 @@ TEST(PointTest, Length2D) {
 
   a[0] = a[1] = 1.0f;
 
-  EXPECT_GE(POINT_PRECISION, abs(sqrt(2) - a.length()));
+  auto precision_diff = sqrt(2) - a.length();
+  precision_diff = precision_diff > 0
+    ? precision_diff
+    : -precision_diff;
+
+  EXPECT_GE(POINT_PRECISION, precision_diff);
 }
 
 TEST(PointTest, Dot2D) {
@@ -101,11 +105,4 @@ TEST(PointTest, Dot2D) {
   b[0] = b[1] = 5.0f;
 
   EXPECT_EQ(10.0f, a.dot(b));
-}
-
-}
-
-int main(int argc, char** argv) {
-  ::testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
 }

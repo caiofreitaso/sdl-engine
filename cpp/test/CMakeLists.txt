@@ -1,15 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 project(test_runner LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 17)
-
-find_package(SDL2 REQUIRED)
-find_package(OpenGL REQUIRED)
-find_package(GLUT REQUIRED)
-find_package(OpenMP REQUIRED)
-
-add_definitions(-DGL_GLEXT_PROTOTYPES -D_REENTRANT)
-
 include(GoogleTest)
 
 add_subdirectory(googletest)
@@ -31,6 +22,7 @@ target_link_libraries(test_runner
   m
   SDL2
   stdc++
+  stdc++fs
   GL
   GLU
   glut

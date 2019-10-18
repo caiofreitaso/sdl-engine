@@ -18,9 +18,9 @@ GameEngine::Graphics::set_light(GameEngine::Graphics::Light light, unsigned numb
 }
 
 const GameEngine::Graphics::Light GameEngine::Graphics::DEFAULT_LIGHT = {
-  .ambient = { 1, 1, 1, 1 },
-  .diffuse = { 1, 1, 1, 1 },
-  .specular = { 1, 1, 1, 1 },
+  .ambient = { 1.0f, 1.0f, 1.0f, 0.0f },
+  .diffuse = { 1.0f, 1.0f, 1.0f, 0.0f },
+  .specular = { 1.0f, 1.0f, 1.0f, 0.0f },
 
   .position = { 3, 3, 20, 1 },
 
