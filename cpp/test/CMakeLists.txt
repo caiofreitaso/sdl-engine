@@ -1,0 +1,41 @@
+cmake_minimum_required(VERSION 3.13)
+project(test_runner LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+
+find_package(SDL2 REQUIRED)
+find_package(OpenGL REQUIRED)
+find_package(GLUT REQUIRED)
+find_package(OpenMP REQUIRED)
+
+add_definitions(-DGL_GLEXT_PROTOTYPES -D_REENTRANT)
+
+include(GoogleTest)
+
+add_subdirectory(googletest)
+mark_as_advanced(
+  BUILD_GMOCK BUILD_GTEST BUILD_SHARED_LIBS
+  gmock_build_tests gtest_build_samples gtest_build_tests
+  gtest_disable_pthreads gtest_force_shared_crt gtest_hide_internal_symbols
+)
+
+include_directories("${PROJECT_SOURCE_DIR}/../include")
+
+file(GLOB_RECURSE gameengine_SRC "${PROJECT_SOURCE_DIR}/../src/game-engine/**.cc")
+file(GLOB_RECURSE tests_SRC "${PROJECT_SOURCE_DIR}/game-engine/**.t.cc")
+
+add_executable(test_runner ${tests_SRC} ${gameengine_SRC})
+target_link_libraries(test_runner
+  gtest
+  gtest_main
+  m
+  SDL2
+  stdc++
+  GL
+  GLU
+  glut
+)
+
+gtest_add_tests(
+  TARGET test_runner
+  SOURCE ${tests_SRC})

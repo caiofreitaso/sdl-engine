@@ -7,8 +7,8 @@ union Color {
   float v[4];
   struct {
     float r, g, b, a;
-  }
-}
+  };
+};
 
 extern const Color COLOR_CLIFF;
 extern const Color COLOR_DEEP_WATER;

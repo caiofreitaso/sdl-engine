@@ -1,7 +1,7 @@
 #ifndef GAMEENGINE_CORE_SETTINGS_H_
 #define GAMEENGINE_CORE_SETTINGS_H_
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 #include <game-engine/core/resolution.h>
 
