@@ -158,8 +158,8 @@ GameEngine::IO::UpdateHandlers::WASD(GameEngine::IO::Scene *scene) {
   auto delta_pos = settings.controls.camera.speed * game_state.delta_time;
 
   Point3f camera_delta = {
-    value_to_add(scene, SDL_SCANCODE_W, SDL_SCANCODE_S, delta_pos),
     value_to_add(scene, SDL_SCANCODE_D, SDL_SCANCODE_A, delta_pos),
+    value_to_add(scene, SDL_SCANCODE_W, SDL_SCANCODE_S, delta_pos),
     0.0f
   };
 

@@ -34,3 +34,26 @@ GameEngine::Map GameEngine::Map::from_file(const char *filename) {
 
   return ret;
 }
+
+GameEngine::Map GameEngine::Map::random(unsigned short x, unsigned short y) {
+  static const unsigned terrain_types[8] = { 27, 26, 21, 11, 6, 5, 1, 0 };
+  Map map;
+  std::mt19937 random;
+
+  map.x = x;
+  map.y = y;
+  map.field.reserve(map.x * map.y);
+
+  for (int i = 0; i < map.x; i++) {
+    for (int j = 0; j < map.y; j++) {
+      auto point = Map::Point {
+        .type = (Terrain) (terrain_types[random() % 8]),
+        .height = random() % 128,
+      };
+
+      map.field.push_back(point);
+    }
+  }
+
+  return map;
+}

@@ -2,6 +2,8 @@
 #define GAMEENGINE_CORE_MAP_H
 
 #include <fstream>
+#include <random>
+
 #include <game-engine/util/string.h>
 
 namespace GameEngine {
@@ -31,6 +33,7 @@ struct Map {
   std::vector<Point> field;
 
   static Map from_file(const char *);
+  static Map random(unsigned short x, unsigned short y);
 };
 }
 

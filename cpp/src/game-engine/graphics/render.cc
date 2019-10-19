@@ -4,7 +4,7 @@ void
 GameEngine::Graphics::Renderer::init() {
   glShadeModel(GL_SMOOTH);
   glEnable(GL_DEPTH_TEST);
-  glClearColor(0, 0, 0, 0.8);
+  glClearColor(0, 0, 0, 1);
   glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 }
 

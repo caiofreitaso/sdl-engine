@@ -22,7 +22,7 @@ const GameEngine::Graphics::Light GameEngine::Graphics::DEFAULT_LIGHT = {
   .diffuse = { 1.0f, 1.0f, 1.0f, 0.0f },
   .specular = { 1.0f, 1.0f, 1.0f, 0.0f },
 
-  .position = { 3, 3, 20, 1 },
+  .position = { 3, 3, 20, 0 },
 
   .spot = {
     .direction = { 0.0f, 0.0f, 0.0f },
